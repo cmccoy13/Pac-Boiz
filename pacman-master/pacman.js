@@ -13550,6 +13550,68 @@ window.addEventListener("load", function() {
 let inputData = [];
 let outputData = [];
 
+// function download(strData, strFileName, strMimeType) {
+//     var D = document,
+//         A = arguments,
+//         a = D.createElement("a"),
+//         d = A[0],
+//         n = A[1],
+//         t = A[2] || "text/plain";
+//
+//     //build download link:
+//     a.href = "data:" + strMimeType + "charset=utf-8," + escape(strData);
+//
+//
+//     if (window.MSBlobBuilder) { // IE10
+//         var bb = new MSBlobBuilder();
+//         bb.append(strData);
+//         return navigator.msSaveBlob(bb, strFileName);
+//     } /* end if(window.MSBlobBuilder) */
+//
+//
+//
+//     if ('download' in a) { //FF20, CH19
+//         a.setAttribute("download", n);
+//         a.innerHTML = "downloading...";
+//         D.body.appendChild(a);
+//         setTimeout(function() {
+//             var e = D.createEvent("MouseEvents");
+//             e.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+//             a.dispatchEvent(e);
+//             D.body.removeChild(a);
+//         }, 66);
+//         return true;
+//     }; /* end if('download' in a) */
+//
+//
+//
+//     //do iframe dataURL download: (older W3)
+//     var f = D.createElement("iframe");
+//     D.body.appendChild(f);
+//     f.src = "data:" + (A[2] ? A[2] : "application/octet-stream") + (window.btoa ? ";base64" : "") + "," + (window.btoa ? window.btoa : escape)(strData);
+//     setTimeout(function() {
+//         D.body.removeChild(f);
+//     }, 333);
+//     return true;
+// }
+
+function download(data, filename, type) {
+    var file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+            url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+}
 
 function train(data) {
 
@@ -13566,7 +13628,13 @@ function train(data) {
         rate: 0.3
     });
 
-    console.log(myNetwork.activate([data[0].input,data[0].output]));
+    download(myNetwork.toJSON(), "file.txt", "application/json");
+
+
+    //console.log(JSON.stringify(myNetwork.toJSON()));
+
+    data.forEach(thing => console.log(myNetwork.activate(thing.input)));
+
 }
 
 function gatherDataAndTrain() {
@@ -13589,7 +13657,12 @@ function gatherDataAndTrain() {
             });
         }
 
-        train(fullData);
+        //console.log(JSON.stringify(fullData));
+
+        download(JSON.stringify({data: fullData}), "file.txt", "application/json");
+
+
+        //train(fullData);
     }
 }
 

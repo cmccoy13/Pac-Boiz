@@ -1,0 +1,14 @@
+{
+  "name": "trainer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "train.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "neataptic": "^1.4.7"
+  }
+}

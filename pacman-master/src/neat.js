@@ -2,23 +2,22 @@
 let inputData = [];
 let outputData = [];
 
-
-function train(data) {
-
-    console.log(data);
-
-    const myNetwork = neataptic.architect.Perceptron(inputData[0].length, inputData[0].length + 1, 1);
-
-    console.log(myNetwork);
-
-    myNetwork.train(data, {
-        log: 1,
-        error: 0.01,
-        iterations: 1,
-        rate: 0.3
-    });
-
-    console.log(myNetwork.activate([data[0].input,data[0].output]));
+function download(data, filename, type) {
+    const file = new Blob([data], {type: type});
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        const a = document.createElement("a"),
+            url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
 }
 
 function gatherDataAndTrain() {
@@ -35,13 +34,15 @@ function gatherDataAndTrain() {
     } else {
         const fullData = [];
         for(let i = 0; i < inputData.length; i++) {
-            fullData.push({
-                input: inputData[i],
-                output: [outputData[i]]
-            });
+            if(i % 60 === 0) {
+                fullData.push({
+                    input: inputData[i],
+                    output: [outputData[i]]
+                });
+            }
         }
 
-        train(fullData);
+        download(JSON.stringify({data: fullData}), "file.txt", "application/json");
     }
 }
 
