@@ -1,0 +1,17 @@
+{
+  "name": "pacman-master",
+  "version": "1.0.0",
+  "description": "Pac-Man =======",
+  "main": "pacman.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "neataptic": "^1.4.7"
+  }
+}
