@@ -1631,11 +1631,13 @@ var overState = (function() {
             renderer.drawMessage("GAME  OVER", "#F00", 9, 20);
         },
         update: function() {
-            // if (frames == 120) {
-            //     switchState(homeState,60);
-            // }
-            // else
-            gameover = true;
+            if (frames == 120) {
+                gameover = true;
+
+                // switchState(homeState,60);
+            }
+            else
+            // gameover = true;
                 frames++;
         },
     };

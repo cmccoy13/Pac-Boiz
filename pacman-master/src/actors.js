@@ -25,7 +25,7 @@ clyde.color = "#FFB851";
 clyde.pathColor = "rgba(255,184,81,0.8)";
 clyde.isVisible = true;
 
-var pacman = new GeneticPlayer();
+var pacman = new GeneticPlayer(null);
 pacman.name = "pacman";
 pacman.color = "#FFFF00";
 pacman.pathColor = "rgba(255,255,0,0.8)";

@@ -148,12 +148,14 @@ function checkIfDot(x, y) {
 
 let Neat = neataptic.Neat;
 let architect = neataptic.architect;
+let methods = neataptic.methods;
+//var Config  = neataptic.Config;
 
 // GA settings
 let PLAYER_AMOUNT     = 10;
 let ITERATIONS        = 1000;
 let INPUT_GENOME_SIZE = 1020;
-let OUTPUT_GENOME_SIZE = 1;
+let OUTPUT_GENOME_SIZE = 2;
 let START_HIDDEN_SIZE = 0;
 let MUTATION_RATE     = 0.3;
 let ELITISM_PERCENT   = 0.1;
@@ -168,7 +170,7 @@ function initNeat(){
     neat = new Neat(
         INPUT_GENOME_SIZE,
         OUTPUT_GENOME_SIZE,
-        fitness,
+        null,
         {
             mutation: methods.mutation.ALL,
             popsize: PLAYER_AMOUNT,
@@ -178,27 +180,47 @@ function initNeat(){
         }
     );
 
-    if(USE_TRAINED_POP)
-        neat.population = population;
+    console.log(neat);
+
+    // if(USE_TRAINED_POP)
+    //     neat.population = population;
 }
 
-function fitness(genome) {
-
-}
 /** Start the evaluation of the current generation */
 function startEvaluation(){
     console.log(`generation: ${neat.generation}`);
     players = [];
     highestScore = 0;
 
-    for(var genome in neat.population){
-        genome = neat.population[genome];
-        new Player(genome);
-    }
+    genomeIndex = 0;
+
+    neat.mutate();
+
+    evaluateGenome();
 }
 
-function evaluateGenome(genome) {
-    pacman = new GeneticPlayer(genome);
+function evaluateGenome() {
+
+
+
+    if(genomeIndex < neat.population.length) {
+        const genome = neat.population[genomeIndex];
+
+        console.log(genome);
+
+        pacman.setGenome(genome);
+        // pacman.name = "pacman";
+        // pacman.color = "#FFFF00";
+        // pacman.pathColor = "rgba(255,255,0,0.8)";
+
+        gameover = false;
+        newGameState.setStartLevel(1);
+        switchState(newGameState);
+        executive.init();
+        genomeIndex++;
+    } else {
+        endEvaluation();
+    }
 }
 
 /** End the evaluation of the current generation */

@@ -22,7 +22,8 @@
 
 (function(){
 
-//@line 1 "src/inherit.js"
+//@line 1 "src/geneticDeclarations.js"
+let genomeIndex;//@line 1 "src/inherit.js"
 //  Apparently, the mutable, non-standard __proto__ property creates a lot of complexity for JS optimizers,
 //   so it may be phased out in future JS versions.  It's not even supported in Internet Explorer.
 //
@@ -8380,15 +8381,25 @@ function checkIfDot(x, y) {
 
 GeneticPlayer.prototype.steer = function() {
 
-    // const input = this.brain.activate(getDataInput());
-    // if(input[0] !== input[1]) {
-    //     this.dir = {
-    //         x: input[0],
-    //         y: input[1]
-    //     };
-    // }
+    this.brain.score = getScore();
+    console.log(this.brain.score);
+
+    if(getDataInput() != null) {
+        const input = this.brain.activate(getDataInput());
+        console.log(input);
+        if (input[0] !== input[1]) {
+            this.dir = {
+                x: input[0],
+                y: input[1]
+            };
+        }
+    }
     Player.prototype.steer.call(this);
 }
+
+GeneticPlayer.prototype.setGenome = function(genome) {
+    this.brain = genome;
+};
 //@line 1 "src/actors.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // create all the actors
@@ -8417,7 +8428,7 @@ clyde.color = "#FFB851";
 clyde.pathColor = "rgba(255,184,81,0.8)";
 clyde.isVisible = true;
 
-var pacman = new GeneticPlayer();
+var pacman = new GeneticPlayer(null);
 pacman.name = "pacman";
 pacman.color = "#FFFF00";
 pacman.pathColor = "rgba(255,255,0,0.8)";
@@ -9625,6 +9636,7 @@ var executive = (function(){
             if (running) {
                 cancelAnimationFrame(reqFrame);
                 running = false;
+                evaluateGenome();
             }
         },
         togglePause: function() { paused = !paused; },
@@ -11266,11 +11278,13 @@ var overState = (function() {
             renderer.drawMessage("GAME  OVER", "#F00", 9, 20);
         },
         update: function() {
-            // if (frames == 120) {
-            //     switchState(homeState,60);
-            // }
-            // else
-            gameover = true;
+            if (frames == 120) {
+                gameover = true;
+
+                // switchState(homeState,60);
+            }
+            else
+            // gameover = true;
                 frames++;
         },
     };
@@ -13642,21 +13656,6 @@ var vcr = (function() {
         },
     };
 })();
-//@line 1 "src/main.js"
-//////////////////////////////////////////////////////////////////////////////////////
-// Entry Point
-
-window.addEventListener("load", function() {
-
-    loadHighScores();
-    initRenderer();
-    atlas.create();
-    initSwipe();
-    gameover = false;
-    newGameState.setStartLevel(1);
-    switchState(newGameState);
-    executive.init();
-});
 //@line 1 "src/genetic.js"
 
 let inputData = [];
@@ -13745,29 +13744,6 @@ function gatherDataAndTrain() {
 
 function calculateDistanceToNearestDot(xs, ys) {
 
-    // let distance = 999;
-    // let closeX = 0;
-    // let closeY = 0;
-    //
-    // for(let i = 0; i < map.currentTiles.length; i++) {
-    //
-    //     if(map.currentTiles[i] === ".") {
-    //
-    //         const y = Math.floor(i / map.numCols);
-    //         const x = i % map.numCols;
-    //
-    //
-    //
-    //         const curDist = Math.abs(xs - x) + Math.abs(ys - y);
-    //
-    //         if(curDist < distance) {
-    //             distance = curDist;
-    //             closeX = x;
-    //             closeY = y;
-    //         }
-    //     }
-    // }
-
     for (let d = 1; d<map.currentTiles.length; d++)
     {
         for (let i = 0; i < d + 1; i++)
@@ -13830,12 +13806,15 @@ function checkIfDot(x, y) {
 }
 
 let Neat = neataptic.Neat;
+let architect = neataptic.architect;
+let methods = neataptic.methods;
+//var Config  = neataptic.Config;
 
 // GA settings
 let PLAYER_AMOUNT     = 10;
 let ITERATIONS        = 1000;
 let INPUT_GENOME_SIZE = 1020;
-let OUTPUT_GENOME_SIZE = 1;
+let OUTPUT_GENOME_SIZE = 2;
 let START_HIDDEN_SIZE = 0;
 let MUTATION_RATE     = 0.3;
 let ELITISM_PERCENT   = 0.1;
@@ -13843,12 +13822,14 @@ let ELITISM_PERCENT   = 0.1;
 // Trained population
 let USE_TRAINED_POP = true;
 
+let neat;
+
 /** Construct the genetic algorithm */
 function initNeat(){
     neat = new Neat(
         INPUT_GENOME_SIZE,
         OUTPUT_GENOME_SIZE,
-        fitness,
+        null,
         {
             mutation: methods.mutation.ALL,
             popsize: PLAYER_AMOUNT,
@@ -13858,21 +13839,46 @@ function initNeat(){
         }
     );
 
-    if(USE_TRAINED_POP)
-        neat.population = population;
+    console.log(neat);
+
+    // if(USE_TRAINED_POP)
+    //     neat.population = population;
 }
 
-function fitness() {
-
-}
 /** Start the evaluation of the current generation */
 function startEvaluation(){
+    console.log(`generation: ${neat.generation}`);
     players = [];
     highestScore = 0;
 
-    for(var genome in neat.population){
-        genome = neat.population[genome];
-        new Player(genome);
+    genomeIndex = 0;
+
+    neat.mutate();
+
+    evaluateGenome();
+}
+
+function evaluateGenome() {
+
+
+
+    if(genomeIndex < neat.population.length) {
+        const genome = neat.population[genomeIndex];
+
+        console.log(genome);
+
+        pacman.setGenome(genome);
+        // pacman.name = "pacman";
+        // pacman.color = "#FFFF00";
+        // pacman.pathColor = "rgba(255,255,0,0.8)";
+
+        gameover = false;
+        newGameState.setStartLevel(1);
+        switchState(newGameState);
+        executive.init();
+        genomeIndex++;
+    } else {
+        endEvaluation();
     }
 }
 
@@ -13899,4 +13905,23 @@ function endEvaluation(){
 
     neat.generation++;
     startEvaluation();
-}})();
+}//@line 1 "src/main.js"
+//////////////////////////////////////////////////////////////////////////////////////
+// Entry Point
+
+window.addEventListener("load", function() {
+
+    loadHighScores();
+    initRenderer();
+    atlas.create();
+    initSwipe();
+    gameover = false;
+
+    initNeat();
+    startEvaluation();
+
+    // newGameState.setStartLevel(1);
+    // switchState(newGameState);
+    // executive.init();
+});
+})();

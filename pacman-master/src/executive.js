@@ -147,6 +147,7 @@ var executive = (function(){
             if (running) {
                 cancelAnimationFrame(reqFrame);
                 running = false;
+                evaluateGenome();
             }
         },
         togglePause: function() { paused = !paused; },

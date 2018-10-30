@@ -8,7 +8,11 @@ window.addEventListener("load", function() {
     atlas.create();
     initSwipe();
     gameover = false;
-    newGameState.setStartLevel(1);
-    switchState(newGameState);
-    executive.init();
+
+    initNeat();
+    startEvaluation();
+
+    // newGameState.setStartLevel(1);
+    // switchState(newGameState);
+    // executive.init();
 });

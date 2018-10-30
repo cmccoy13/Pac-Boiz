@@ -34,6 +34,7 @@ echo "
 " > $output
 
 for file in \
+    geneticDeclarations.js \
     inherit.js \
     sound.js \
     random.js \

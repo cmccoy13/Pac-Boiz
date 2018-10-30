@@ -106,12 +106,22 @@ function checkIfDot(x, y) {
 
 GeneticPlayer.prototype.steer = function() {
 
-    // const input = this.brain.activate(getDataInput());
-    // if(input[0] !== input[1]) {
-    //     this.dir = {
-    //         x: input[0],
-    //         y: input[1]
-    //     };
-    // }
+    this.brain.score = getScore();
+    console.log(this.brain.score);
+
+    if(getDataInput() != null) {
+        const input = this.brain.activate(getDataInput());
+        console.log(input);
+        if (input[0] !== input[1]) {
+            this.dir = {
+                x: input[0],
+                y: input[1]
+            };
+        }
+    }
     Player.prototype.steer.call(this);
 }
+
+GeneticPlayer.prototype.setGenome = function(genome) {
+    this.brain = genome;
+};
