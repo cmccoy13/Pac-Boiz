@@ -106,8 +106,6 @@ Player.prototype.clearInputDir = function(dirEnum) {
 // move forward one step
 Player.prototype.step = (function(){
 
-    console.log(this.tile);
-
     // return sign of a number
     var sign = function(x) {
         if (x<0) return -1;

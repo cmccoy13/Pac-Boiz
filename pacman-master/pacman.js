@@ -3168,7 +3168,7 @@ var initRenderer = function(){
         canvas.style.top = y;
         console.log(canvas.style.left);
         */
-        document.body.style.marginLeft = (window.innerWidth - w)/2 + "px";
+        //document.body.style.marginLeft = (window.innerWidth - w)/2 + "px";
     };
 
     // create foreground and background canvases
@@ -8149,8 +8149,6 @@ Player.prototype.clearInputDir = function(dirEnum) {
 // move forward one step
 Player.prototype.step = (function(){
 
-    console.log(this.tile);
-
     // return sign of a number
     var sign = function(x) {
         if (x<0) return -1;
@@ -8273,6 +8271,124 @@ Player.prototype.update = function(j) {
         }
     }
 };
+//@line 1 "src/geneticPlayer.js"
+
+var GeneticPlayer = function(genome) {
+
+    // inherit data from Actor
+    Player.apply(this);
+    this.brain = genome;
+
+    console.log(this);
+
+};
+
+//GeneticPlayer.prototype = Object.create(Player.prototype);
+//GeneticPlayer.prototype.constructor = GeneticPlayer;
+
+// inherit functions from Actor
+GeneticPlayer.prototype = newChildObject(Player.prototype);
+
+
+function getDataInput() {
+
+    const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
+
+    const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
+
+    const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
+
+    const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
+
+    if(nearest != null) {
+
+        const nearestNormalize = [nearest.x / 50, nearest.y / 50];
+
+        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
+
+        //console.log(dataArr);
+
+        return dataArr;
+    }
+
+    return null;
+}
+
+function calculateDistanceToNearestDot(xs, ys) {
+
+    for (let d = 1; d<map.currentTiles.length; d++)
+    {
+        for (let i = 0; i < d + 1; i++)
+        {
+            const x1 = xs - d + i;
+            const y1 = ys - i;
+
+            if(checkIfDot(x1, y1)) {
+                return {
+                    x: x1,
+                    y: y1
+                }
+            }
+
+            const x2 = xs + d - i;
+            const y2 = ys + i;
+
+            if(checkIfDot(x2, y2)) {
+                return {
+                    x: x2,
+                    y: y2
+                }
+            }
+        }
+
+
+        for (let i = 1; i < d; i++)
+        {
+            const x1 = xs - i;
+            const y1 = ys + d - i;
+
+            if(checkIfDot(x1, y1)) {
+                return {
+                    x: x1,
+                    y: y1
+                }
+            }
+
+            const x2 = xs + d - i;
+            const y2 = ys - i;
+
+            if(checkIfDot(x2, y2)) {
+                return {
+                    x: x2,
+                    y: y2
+                }
+            }
+        }
+    }
+
+    return null;
+
+}
+
+function checkIfDot(x, y) {
+    if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
+        return false;
+    }
+    return map.currentTiles[(map.numCols * y) + x] === "." || map.currentTiles[(map.numCols * y) + x] === "o";
+}
+
+
+GeneticPlayer.prototype.steer = function() {
+
+    // const input = this.brain.activate(getDataInput());
+    // if(input[0] !== input[1]) {
+    //     this.dir = {
+    //         x: input[0],
+    //         y: input[1]
+    //     };
+    // }
+    Player.prototype.steer.call(this);
+}
 //@line 1 "src/actors.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // create all the actors
@@ -8301,7 +8417,7 @@ clyde.color = "#FFB851";
 clyde.pathColor = "rgba(255,184,81,0.8)";
 clyde.isVisible = true;
 
-var pacman = new Player();
+var pacman = new GeneticPlayer();
 pacman.name = "pacman";
 pacman.color = "#FFFF00";
 pacman.pathColor = "rgba(255,255,0,0.8)";
@@ -9437,7 +9553,13 @@ var executive = (function(){
 
         if (map != null && pacman != null) {
 
-            gatherDataAndTrain();
+            //gatherDataAndTrain();
+        }
+
+        if(gameover) {
+            executive.stop();
+            console.log("stopped");
+            return;
         }
 
 
@@ -10678,7 +10800,8 @@ var newGameState = (function() {
             clearCheats();
             frames = 0;
             level = startLevel-1;
-            extraLives = practiceMode ? Infinity : 3;
+            //extraLives = practiceMode ? Infinity : 3;
+            extraLives = 1;
             setScore(0);
             setFruitFromGameMode();
             readyNewState.init();
@@ -11129,6 +11252,8 @@ var finishState = (function(){
 // Game Over state
 // (state when player has lost last life)
 
+var gameover;
+
 var overState = (function() {
     var frames;
     return {
@@ -11141,10 +11266,11 @@ var overState = (function() {
             renderer.drawMessage("GAME  OVER", "#F00", 9, 20);
         },
         update: function() {
-            if (frames == 120) {
-                switchState(homeState,60);
-            }
-            else
+            // if (frames == 120) {
+            //     switchState(homeState,60);
+            // }
+            // else
+            gameover = true;
                 frames++;
         },
     };
@@ -12524,10 +12650,10 @@ var isInCutScene = function() {
 // TODO: no cutscene after board 17 (last one after completing board 17)
 var triggerCutsceneAtEndLevel = function() {
     if (gameMode == GAME_PACMAN) {
-        if (level == 2) {
-            playCutScene(pacmanCutscene1, readyNewState);
-            return true;
-        }
+        // if (level == 2) {
+        //     playCutScene(pacmanCutscene1, readyNewState);
+        //     return true;
+        // }
         /*
         else if (level == 5) {
             playCutScene(pacmanCutscene2, readyNewState);
@@ -13522,85 +13648,26 @@ var vcr = (function() {
 
 window.addEventListener("load", function() {
 
-	console.log("jere");
     loadHighScores();
     initRenderer();
     atlas.create();
     initSwipe();
-	var anchor = window.location.hash.substring(1);
-	if (anchor == "learn") {
-		switchState(learnState);
-	}
-	else if (anchor == "cheat_pac" || anchor == "cheat_mspac") {
-		gameMode = (anchor == "cheat_pac") ? GAME_PACMAN : GAME_MSPACMAN;
-		practiceMode = true;
-        switchState(newGameState);
-		for (var i=0; i<4; i++) {
-			ghosts[i].isDrawTarget = true;
-			ghosts[i].isDrawPath = true;
-		}
-	}
-	else {
-		switchState(homeState);
-	}
+    gameover = false;
+    newGameState.setStartLevel(1);
+    switchState(newGameState);
     executive.init();
 });
-//@line 1 "src/neat.js"
+//@line 1 "src/genetic.js"
 
 let inputData = [];
 let outputData = [];
 
-// function download(strData, strFileName, strMimeType) {
-//     var D = document,
-//         A = arguments,
-//         a = D.createElement("a"),
-//         d = A[0],
-//         n = A[1],
-//         t = A[2] || "text/plain";
-//
-//     //build download link:
-//     a.href = "data:" + strMimeType + "charset=utf-8," + escape(strData);
-//
-//
-//     if (window.MSBlobBuilder) { // IE10
-//         var bb = new MSBlobBuilder();
-//         bb.append(strData);
-//         return navigator.msSaveBlob(bb, strFileName);
-//     } /* end if(window.MSBlobBuilder) */
-//
-//
-//
-//     if ('download' in a) { //FF20, CH19
-//         a.setAttribute("download", n);
-//         a.innerHTML = "downloading...";
-//         D.body.appendChild(a);
-//         setTimeout(function() {
-//             var e = D.createEvent("MouseEvents");
-//             e.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-//             a.dispatchEvent(e);
-//             D.body.removeChild(a);
-//         }, 66);
-//         return true;
-//     }; /* end if('download' in a) */
-//
-//
-//
-//     //do iframe dataURL download: (older W3)
-//     var f = D.createElement("iframe");
-//     D.body.appendChild(f);
-//     f.src = "data:" + (A[2] ? A[2] : "application/octet-stream") + (window.btoa ? ";base64" : "") + "," + (window.btoa ? window.btoa : escape)(strData);
-//     setTimeout(function() {
-//         D.body.removeChild(f);
-//     }, 333);
-//     return true;
-// }
-
 function download(data, filename, type) {
-    var file = new Blob([data], {type: type});
+    const file = new Blob([data], {type: type});
     if (window.navigator.msSaveOrOpenBlob) // IE10+
         window.navigator.msSaveOrOpenBlob(file, filename);
     else { // Others
-        var a = document.createElement("a"),
+        const a = document.createElement("a"),
             url = URL.createObjectURL(file);
         a.href = url;
         a.download = filename;
@@ -13611,30 +13678,6 @@ function download(data, filename, type) {
             window.URL.revokeObjectURL(url);
         }, 0);
     }
-}
-
-function train(data) {
-
-    console.log(data);
-
-    const myNetwork = neataptic.architect.Perceptron(inputData[0].length, inputData[0].length + 1, 1);
-
-    console.log(myNetwork);
-
-    myNetwork.train(data, {
-        log: 1,
-        error: 0.01,
-        iterations: 1,
-        rate: 0.3
-    });
-
-    download(myNetwork.toJSON(), "file.txt", "application/json");
-
-
-    //console.log(JSON.stringify(myNetwork.toJSON()));
-
-    data.forEach(thing => console.log(myNetwork.activate(thing.input)));
-
 }
 
 function gatherDataAndTrain() {
@@ -13651,57 +13694,54 @@ function gatherDataAndTrain() {
     } else {
         const fullData = [];
         for(let i = 0; i < inputData.length; i++) {
-            fullData.push({
-                input: inputData[i],
-                output: [outputData[i]]
-            });
+            if(i % 60 === 0) {
+                fullData.push({
+                    input: inputData[i],
+                    output: [outputData[i]]
+                });
+            }
         }
 
-        //console.log(JSON.stringify(fullData));
-
         download(JSON.stringify({data: fullData}), "file.txt", "application/json");
-
-
-        //train(fullData);
     }
 }
 
 //[pacmanX, pacmanY, nearestDotX, nearestDotY, ghostX, ghostY, board]
 
-function getDataInput() {
-
-    const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
-
-    const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
-
-    const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
-
-    const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
-
-    if(nearest != null) {
-
-        const nearestNormalize = [nearest.x / 50, nearest.y / 50];
-
-        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
-
-        //console.log(dataArr);
-
-        return dataArr;
-    }
-
-    return null;
-
-    // let newTiles = [];
-    //
-    // for(let i = 0; i < map.numRows; i++) {
-    //
-    //     newTiles[i] = map.currentTiles.slice(i * map.numCols, (i + 1) * map.numCols);
-    // }
-    //
-    // console.log(newTiles);
-
-    //console.log(map);
-}
+// function getDataInput() {
+//
+//     const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
+//
+//     const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
+//
+//     const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
+//
+//     const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
+//
+//     if(nearest != null) {
+//
+//         const nearestNormalize = [nearest.x / 50, nearest.y / 50];
+//
+//         const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
+//
+//         //console.log(dataArr);
+//
+//         return dataArr;
+//     }
+//
+//     return null;
+//
+//     // let newTiles = [];
+//     //
+//     // for(let i = 0; i < map.numRows; i++) {
+//     //
+//     //     newTiles[i] = map.currentTiles.slice(i * map.numCols, (i + 1) * map.numCols);
+//     // }
+//     //
+//     // console.log(newTiles);
+//
+//     //console.log(map);
+// }
 
 function calculateDistanceToNearestDot(xs, ys) {
 
@@ -13786,5 +13826,77 @@ function checkIfDot(x, y) {
     if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
         return false;
     }
-    return map.currentTiles[(map.numCols * y) + x] === ".";
+    return map.currentTiles[(map.numCols * y) + x] === "." || map.currentTiles[(map.numCols * y) + x] === "o";
+}
+
+let Neat = neataptic.Neat;
+
+// GA settings
+let PLAYER_AMOUNT     = 10;
+let ITERATIONS        = 1000;
+let INPUT_GENOME_SIZE = 1020;
+let OUTPUT_GENOME_SIZE = 1;
+let START_HIDDEN_SIZE = 0;
+let MUTATION_RATE     = 0.3;
+let ELITISM_PERCENT   = 0.1;
+
+// Trained population
+let USE_TRAINED_POP = true;
+
+/** Construct the genetic algorithm */
+function initNeat(){
+    neat = new Neat(
+        INPUT_GENOME_SIZE,
+        OUTPUT_GENOME_SIZE,
+        fitness,
+        {
+            mutation: methods.mutation.ALL,
+            popsize: PLAYER_AMOUNT,
+            mutationRate: MUTATION_RATE,
+            elitism: Math.round(ELITISM_PERCENT * PLAYER_AMOUNT),
+            network: new architect.Random(INPUT_GENOME_SIZE, START_HIDDEN_SIZE, OUTPUT_GENOME_SIZE)
+        }
+    );
+
+    if(USE_TRAINED_POP)
+        neat.population = population;
+}
+
+function fitness() {
+
+}
+/** Start the evaluation of the current generation */
+function startEvaluation(){
+    players = [];
+    highestScore = 0;
+
+    for(var genome in neat.population){
+        genome = neat.population[genome];
+        new Player(genome);
+    }
+}
+
+/** End the evaluation of the current generation */
+function endEvaluation(){
+    console.log('Generation:', neat.generation, '- average score:', neat.getAverage());
+
+    neat.sort();
+    var newPopulation = [];
+
+    // Elitism
+    for(var i = 0; i < neat.elitism; i++){
+        newPopulation.push(neat.population[i]);
+    }
+
+    // Breed the next individuals
+    for(var i = 0; i < neat.popsize - neat.elitism; i++){
+        newPopulation.push(neat.getOffspring());
+    }
+
+    // Replace the old population with the new population
+    neat.population = newPopulation;
+    neat.mutate();
+
+    neat.generation++;
+    startEvaluation();
 }})();

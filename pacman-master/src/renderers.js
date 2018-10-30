@@ -116,7 +116,7 @@ var initRenderer = function(){
         canvas.style.top = y;
         console.log(canvas.style.left);
         */
-        document.body.style.marginLeft = (window.innerWidth - w)/2 + "px";
+        //document.body.style.marginLeft = (window.innerWidth - w)/2 + "px";
     };
 
     // create foreground and background canvases

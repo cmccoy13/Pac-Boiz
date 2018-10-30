@@ -1165,7 +1165,8 @@ var newGameState = (function() {
             clearCheats();
             frames = 0;
             level = startLevel-1;
-            extraLives = practiceMode ? Infinity : 3;
+            //extraLives = practiceMode ? Infinity : 3;
+            extraLives = 1;
             setScore(0);
             setFruitFromGameMode();
             readyNewState.init();
@@ -1616,6 +1617,8 @@ var finishState = (function(){
 // Game Over state
 // (state when player has lost last life)
 
+var gameover;
+
 var overState = (function() {
     var frames;
     return {
@@ -1628,10 +1631,11 @@ var overState = (function() {
             renderer.drawMessage("GAME  OVER", "#F00", 9, 20);
         },
         update: function() {
-            if (frames == 120) {
-                switchState(homeState,60);
-            }
-            else
+            // if (frames == 120) {
+            //     switchState(homeState,60);
+            // }
+            // else
+            gameover = true;
                 frames++;
         },
     };

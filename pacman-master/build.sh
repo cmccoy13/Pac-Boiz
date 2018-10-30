@@ -53,6 +53,7 @@ for file in \
     Actor.js \
     Ghost.js \
     Player.js \
+    geneticPlayer.js \
     actors.js \
     targets.js \
     ghostCommander.js \
@@ -66,8 +67,8 @@ for file in \
     cutscenes.js \
     maps.js \
     vcr.js \
-    main.js \
-    neat.js
+    genetic.js \
+    main.js
 do
     # points firebug to correct file (or so I hoped)
     # if JSOPTION_ATLINE is set, this should work in firefox (but I don't know how to set it)

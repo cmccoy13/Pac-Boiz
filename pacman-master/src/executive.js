@@ -75,7 +75,13 @@ var executive = (function(){
 
         if (map != null && pacman != null) {
 
-            gatherDataAndTrain();
+            //gatherDataAndTrain();
+        }
+
+        if(gameover) {
+            executive.stop();
+            console.log("stopped");
+            return;
         }
 
 

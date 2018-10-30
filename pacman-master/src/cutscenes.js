@@ -1096,10 +1096,10 @@ var isInCutScene = function() {
 // TODO: no cutscene after board 17 (last one after completing board 17)
 var triggerCutsceneAtEndLevel = function() {
     if (gameMode == GAME_PACMAN) {
-        if (level == 2) {
-            playCutScene(pacmanCutscene1, readyNewState);
-            return true;
-        }
+        // if (level == 2) {
+        //     playCutScene(pacmanCutscene1, readyNewState);
+        //     return true;
+        // }
         /*
         else if (level == 5) {
             playCutScene(pacmanCutscene2, readyNewState);
