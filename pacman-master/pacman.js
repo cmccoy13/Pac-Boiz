@@ -22,7 +22,8 @@
 
 (function(){
 
-//@line 1 "src/geneticDeclarations.js"
+//@line 1 "src/populations/population8.js"
+var population = {generation: 8, data: [{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":14},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":1.477428333960912,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null},{"weight":-0.06763614415537597,"from":10,"to":16,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":-0.06763614415537597,"from":10,"to":16,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.5341434755499869,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0},{"nodes":[{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":0},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":1},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":2},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":3},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":4},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":5},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":6},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":7},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":8},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":9},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":10},{"bias":0,"type":"input","squash":"LOGISTIC","mask":1,"index":11},{"bias":0.0681171498469397,"type":"hidden","squash":"TANH","mask":1,"index":12},{"bias":-0.029101044635302525,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":13},{"bias":0.053176585119195846,"type":"hidden","squash":"IDENTITY","mask":1,"index":14},{"bias":0.03325060081803949,"type":"hidden","squash":"BENT_IDENTITY","mask":1,"index":15},{"bias":0.07831587085568456,"type":"hidden","squash":"RELU","mask":1,"index":16},{"bias":0.054116767712225816,"type":"output","squash":"LOGISTIC","mask":1,"index":17}],"connections":[{"weight":1,"from":13,"to":13,"gater":null},{"weight":-0.004440164182717116,"from":16,"to":17,"gater":null},{"weight":-0.02148925851781222,"from":15,"to":17,"gater":null},{"weight":0.07714655683757896,"from":13,"to":17,"gater":null},{"weight":-0.03340493563258176,"from":12,"to":17,"gater":null},{"weight":0.05892472174744423,"from":14,"to":15,"gater":null},{"weight":4.766754737360789,"from":11,"to":17,"gater":null},{"weight":0.9548803147901086,"from":10,"to":17,"gater":null},{"weight":2.288246094034818,"from":9,"to":17,"gater":null},{"weight":0.09606796703149817,"from":11,"to":15,"gater":null},{"weight":0.45670052722022136,"from":8,"to":17,"gater":null},{"weight":4.009979488559103,"from":6,"to":17,"gater":null},{"weight":0.00885034655270367,"from":10,"to":12,"gater":null},{"weight":2.9448262154598037,"from":4,"to":17,"gater":null},{"weight":-0.06255049729095097,"from":5,"to":16,"gater":null},{"weight":4.27898946280143,"from":3,"to":17,"gater":null},{"weight":0.061599198097961466,"from":7,"to":13,"gater":null},{"weight":-0.0006013325282598903,"from":3,"to":16,"gater":null},{"weight":-0.010881564428925072,"from":5,"to":14,"gater":null},{"weight":1.9932775009921995,"from":0,"to":17,"gater":null},{"weight":0.02657690952243405,"from":1,"to":16,"gater":null},{"weight":-0.06506990274289644,"from":2,"to":15,"gater":null},{"weight":0.025460894327860167,"from":4,"to":12,"gater":null},{"weight":0.02201008525560702,"from":2,"to":12,"gater":null}],"input":12,"output":1,"dropout":0}]}//@line 1 "src/geneticDeclarations.js"
 let genomeIndex;//@line 1 "src/inherit.js"
 //  Apparently, the mutable, non-standard __proto__ property creates a lot of complexity for JS optimizers,
 //   so it may be phased out in future JS versions.  It's not even supported in Internet Explorer.
@@ -8297,7 +8298,7 @@ function getDataInput() {
 
     const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
 
-    const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
+    //const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
 
     const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
 
@@ -8305,7 +8306,7 @@ function getDataInput() {
 
         const nearestNormalize = [nearest.x / 50, nearest.y / 50];
 
-        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
+        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData/*, ...board*/];
 
         //console.log(dataArr);
 
@@ -8382,17 +8383,44 @@ function checkIfDot(x, y) {
 GeneticPlayer.prototype.steer = function() {
 
     this.brain.score = getScore();
-    console.log(this.brain.score);
+    //console.log(this.brain.score);
+
+    //console.log(getDataInput());
 
     if(getDataInput() != null) {
         const input = this.brain.activate(getDataInput());
-        console.log(input);
-        if (input[0] !== input[1]) {
+
+        if(input < .25) {
             this.dir = {
-                x: input[0],
-                y: input[1]
+                x: -1,
+                y: 0
+            };
+        } else if (input < .5) {
+            this.dir = {
+                x: 1,
+                y: 0
+            };
+        } else if (input < .75) {
+            this.dir = {
+                x: 0,
+                y: -1
+            };
+        }else {
+            this.dir = {
+                x: 0,
+                y: 1
             };
         }
+        console.log(input);
+        // const x = input[0] < .5 ? -1 : 1;
+        // const y = input[1] < .5 ? -1 : 1;
+        //
+        // if (x !== y) {
+        //     this.dir = {
+        //         x: x,
+        //         y: y
+        //     };
+        // }
     }
     Player.prototype.steer.call(this);
 }
@@ -9636,6 +9664,7 @@ var executive = (function(){
             if (running) {
                 cancelAnimationFrame(reqFrame);
                 running = false;
+                console.log(pacman.brain.score);
                 evaluateGenome();
             }
         },
@@ -13679,131 +13708,32 @@ function download(data, filename, type) {
     }
 }
 
-function gatherDataAndTrain() {
-    const curData = getDataInput();
-
-    if (outputData.length < inputData.length) {
-        outputData.push(pacman.dirEnum / 4);
-    }
-
-    if(curData != null) {
-
-        inputData.push(curData);
-
-    } else {
-        const fullData = [];
-        for(let i = 0; i < inputData.length; i++) {
-            if(i % 60 === 0) {
-                fullData.push({
-                    input: inputData[i],
-                    output: [outputData[i]]
-                });
-            }
-        }
-
-        download(JSON.stringify({data: fullData}), "file.txt", "application/json");
-    }
-}
-
-//[pacmanX, pacmanY, nearestDotX, nearestDotY, ghostX, ghostY, board]
-
-// function getDataInput() {
+// function gatherDataAndTrain() {
+//     const curData = getDataInput();
 //
-//     const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
-//
-//     const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
-//
-//     const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
-//
-//     const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
-//
-//     if(nearest != null) {
-//
-//         const nearestNormalize = [nearest.x / 50, nearest.y / 50];
-//
-//         const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
-//
-//         //console.log(dataArr);
-//
-//         return dataArr;
+//     if (outputData.length < inputData.length) {
+//         outputData.push(pacman.dirEnum / 4);
 //     }
 //
-//     return null;
+//     if(curData != null) {
 //
-//     // let newTiles = [];
-//     //
-//     // for(let i = 0; i < map.numRows; i++) {
-//     //
-//     //     newTiles[i] = map.currentTiles.slice(i * map.numCols, (i + 1) * map.numCols);
-//     // }
-//     //
-//     // console.log(newTiles);
+//         inputData.push(curData);
 //
-//     //console.log(map);
+//     } else {
+//         const fullData = [];
+//         for(let i = 0; i < inputData.length; i++) {
+//             if(i % 60 === 0) {
+//                 fullData.push({
+//                     input: inputData[i],
+//                     output: [outputData[i]]
+//                 });
+//             }
+//         }
+//
+//         download(JSON.stringify({data: fullData}), "file.txt", "application/json");
+//     }
 // }
 
-function calculateDistanceToNearestDot(xs, ys) {
-
-    for (let d = 1; d<map.currentTiles.length; d++)
-    {
-        for (let i = 0; i < d + 1; i++)
-        {
-            const x1 = xs - d + i;
-            const y1 = ys - i;
-
-            if(checkIfDot(x1, y1)) {
-                return {
-                    x: x1,
-                    y: y1
-                }
-            }
-
-            const x2 = xs + d - i;
-            const y2 = ys + i;
-
-            if(checkIfDot(x2, y2)) {
-                return {
-                    x: x2,
-                    y: y2
-                }
-            }
-        }
-
-
-        for (let i = 1; i < d; i++)
-        {
-            const x1 = xs - i;
-            const y1 = ys + d - i;
-
-            if(checkIfDot(x1, y1)) {
-                return {
-                    x: x1,
-                    y: y1
-                }
-            }
-
-            const x2 = xs + d - i;
-            const y2 = ys - i;
-
-            if(checkIfDot(x2, y2)) {
-                return {
-                    x: x2,
-                    y: y2
-                }
-            }
-        }
-    }
-
-    return null;
-
-}
-
-function checkIfDot(x, y) {
-    if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
-        return false;
-    }
-    return map.currentTiles[(map.numCols * y) + x] === "." || map.currentTiles[(map.numCols * y) + x] === "o";
-}
 
 let Neat = neataptic.Neat;
 let architect = neataptic.architect;
@@ -13813,9 +13743,9 @@ let methods = neataptic.methods;
 // GA settings
 let PLAYER_AMOUNT     = 10;
 let ITERATIONS        = 1000;
-let INPUT_GENOME_SIZE = 1020;
-let OUTPUT_GENOME_SIZE = 2;
-let START_HIDDEN_SIZE = 0;
+let INPUT_GENOME_SIZE = 12;
+let OUTPUT_GENOME_SIZE = 1;
+let START_HIDDEN_SIZE = 5;
 let MUTATION_RATE     = 0.3;
 let ELITISM_PERCENT   = 0.1;
 
@@ -13829,7 +13759,7 @@ function initNeat(){
     neat = new Neat(
         INPUT_GENOME_SIZE,
         OUTPUT_GENOME_SIZE,
-        null,
+        fitness,
         {
             mutation: methods.mutation.ALL,
             popsize: PLAYER_AMOUNT,
@@ -13841,8 +13771,20 @@ function initNeat(){
 
     console.log(neat);
 
-    // if(USE_TRAINED_POP)
-    //     neat.population = population;
+     if(USE_TRAINED_POP) {
+         var newPop = [];
+         for(var i = 0; i < PLAYER_AMOUNT; i++){
+             var json = population.data[i % population.data.length];
+             newPop[i] = neataptic.Network.fromJSON(json);
+         }
+         neat.population = newPop;
+         neat.generation = population.generation;
+         //neat.population = neataptic.Network.fromJSON(population);
+     }
+}
+
+function fitness(genome) {
+    return genome.score;
 }
 
 /** Start the evaluation of the current generation */
@@ -13853,14 +13795,12 @@ function startEvaluation(){
 
     genomeIndex = 0;
 
-    neat.mutate();
-
     evaluateGenome();
 }
 
 function evaluateGenome() {
 
-
+    console.log(`generation: ${neat.generation}, genome: ${genomeIndex}`);
 
     if(genomeIndex < neat.population.length) {
         const genome = neat.population[genomeIndex];
@@ -13886,6 +13826,9 @@ function evaluateGenome() {
 function endEvaluation(){
     console.log('Generation:', neat.generation, '- average score:', neat.getAverage());
 
+
+    download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+
     neat.sort();
     var newPopulation = [];
 
@@ -13905,7 +13848,9 @@ function endEvaluation(){
 
     neat.generation++;
     startEvaluation();
-}//@line 1 "src/main.js"
+}
+
+//@line 1 "src/main.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // Entry Point
 

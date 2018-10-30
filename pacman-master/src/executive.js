@@ -147,6 +147,7 @@ var executive = (function(){
             if (running) {
                 cancelAnimationFrame(reqFrame);
                 running = false;
+                console.log(pacman.brain.score);
                 evaluateGenome();
             }
         },

@@ -22,7 +22,7 @@ function getDataInput() {
 
     const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50]);
 
-    const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
+    //const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
 
     const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y);
 
@@ -30,7 +30,7 @@ function getDataInput() {
 
         const nearestNormalize = [nearest.x / 50, nearest.y / 50];
 
-        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData, ...board];
+        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData/*, ...board*/];
 
         //console.log(dataArr);
 
@@ -107,17 +107,44 @@ function checkIfDot(x, y) {
 GeneticPlayer.prototype.steer = function() {
 
     this.brain.score = getScore();
-    console.log(this.brain.score);
+    //console.log(this.brain.score);
+
+    //console.log(getDataInput());
 
     if(getDataInput() != null) {
         const input = this.brain.activate(getDataInput());
-        console.log(input);
-        if (input[0] !== input[1]) {
+
+        if(input < .25) {
             this.dir = {
-                x: input[0],
-                y: input[1]
+                x: -1,
+                y: 0
+            };
+        } else if (input < .5) {
+            this.dir = {
+                x: 1,
+                y: 0
+            };
+        } else if (input < .75) {
+            this.dir = {
+                x: 0,
+                y: -1
+            };
+        }else {
+            this.dir = {
+                x: 0,
+                y: 1
             };
         }
+        console.log(input);
+        // const x = input[0] < .5 ? -1 : 1;
+        // const y = input[1] < .5 ? -1 : 1;
+        //
+        // if (x !== y) {
+        //     this.dir = {
+        //         x: x,
+        //         y: y
+        //     };
+        // }
     }
     Player.prototype.steer.call(this);
 }
