@@ -135,7 +135,7 @@ GeneticPlayer.prototype.steer = function() {
                 y: 1
             };
         }
-        console.log(input);
+        //console.log(input);
         // const x = input[0] < .5 ? -1 : 1;
         // const y = input[1] < .5 ? -1 : 1;
         //

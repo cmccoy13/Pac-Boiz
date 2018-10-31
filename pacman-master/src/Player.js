@@ -190,16 +190,19 @@ Player.prototype.steer = function() {
 // update this frame
 Player.prototype.update = function(j) {
 
+    //j = j + 5;
+
     var numSteps = this.getNumSteps();
-    if (j >= numSteps)
-        return;
+    // if (j >= numSteps)
+    //     console.log("here");
+    //     return;
 
     // skip frames
-    if (this.eatPauseFramesLeft > 0) {
-        if (j == numSteps-1)
-            this.eatPauseFramesLeft--;
-        return;
-    }
+    // if (this.eatPauseFramesLeft > 0) {
+    //     if (j == numSteps-1)
+    //         this.eatPauseFramesLeft--;
+    //     return;
+    // }
 
     // call super function to update position and direction
     Actor.prototype.update.call(this,j);

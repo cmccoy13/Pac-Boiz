@@ -53,16 +53,16 @@ let methods = neataptic.methods;
 //var Config  = neataptic.Config;
 
 // GA settings
-let PLAYER_AMOUNT     = 10;
+let PLAYER_AMOUNT     = 100;
 let ITERATIONS        = 1000;
 let INPUT_GENOME_SIZE = 12;
 let OUTPUT_GENOME_SIZE = 1;
-let START_HIDDEN_SIZE = 5;
-let MUTATION_RATE     = 0.3;
+let START_HIDDEN_SIZE = 0;
+let MUTATION_RATE     = 0.5;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = true;
+let USE_TRAINED_POP = false;
 
 let neat;
 
@@ -117,7 +117,7 @@ function evaluateGenome() {
     if(genomeIndex < neat.population.length) {
         const genome = neat.population[genomeIndex];
 
-        console.log(genome);
+        //console.log(genome);
 
         pacman.setGenome(genome);
         // pacman.name = "pacman";
@@ -139,7 +139,9 @@ function endEvaluation(){
     console.log('Generation:', neat.generation, '- average score:', neat.getAverage());
 
 
-    download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    if(neat.generation % 10 === 0) {
+        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    }
 
     neat.sort();
     var newPopulation = [];

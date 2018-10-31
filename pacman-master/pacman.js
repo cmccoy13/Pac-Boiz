@@ -7552,7 +7552,7 @@ Actor.prototype.getStepSizeFromTable = (function(){
         else if (level >= 2 && level <= 4)  entry = 1;
         else if (level >= 5 && level <= 20) entry = 2;
         else if (level >= 21)               entry = 3;
-        return stepSizes[entry*7*16 + pattern*16 + this.frames%16];
+        return stepSizes[entry*7*16 + pattern*16 + this.frames%16] + 5;
     };
 })();
 
@@ -8235,16 +8235,19 @@ Player.prototype.steer = function() {
 // update this frame
 Player.prototype.update = function(j) {
 
+    //j = j + 5;
+
     var numSteps = this.getNumSteps();
-    if (j >= numSteps)
-        return;
+    // if (j >= numSteps)
+    //     console.log("here");
+    //     return;
 
     // skip frames
-    if (this.eatPauseFramesLeft > 0) {
-        if (j == numSteps-1)
-            this.eatPauseFramesLeft--;
-        return;
-    }
+    // if (this.eatPauseFramesLeft > 0) {
+    //     if (j == numSteps-1)
+    //         this.eatPauseFramesLeft--;
+    //     return;
+    // }
 
     // call super function to update position and direction
     Actor.prototype.update.call(this,j);
@@ -8411,7 +8414,7 @@ GeneticPlayer.prototype.steer = function() {
                 y: 1
             };
         }
-        console.log(input);
+        //console.log(input);
         // const x = input[0] < .5 ? -1 : 1;
         // const y = input[1] < .5 ? -1 : 1;
         //
@@ -13741,16 +13744,16 @@ let methods = neataptic.methods;
 //var Config  = neataptic.Config;
 
 // GA settings
-let PLAYER_AMOUNT     = 10;
+let PLAYER_AMOUNT     = 100;
 let ITERATIONS        = 1000;
 let INPUT_GENOME_SIZE = 12;
 let OUTPUT_GENOME_SIZE = 1;
-let START_HIDDEN_SIZE = 5;
-let MUTATION_RATE     = 0.3;
+let START_HIDDEN_SIZE = 0;
+let MUTATION_RATE     = 0.5;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = true;
+let USE_TRAINED_POP = false;
 
 let neat;
 
@@ -13805,7 +13808,7 @@ function evaluateGenome() {
     if(genomeIndex < neat.population.length) {
         const genome = neat.population[genomeIndex];
 
-        console.log(genome);
+        //console.log(genome);
 
         pacman.setGenome(genome);
         // pacman.name = "pacman";
@@ -13827,7 +13830,9 @@ function endEvaluation(){
     console.log('Generation:', neat.generation, '- average score:', neat.getAverage());
 
 
-    download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    if(neat.generation % 10 === 0) {
+        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    }
 
     neat.sort();
     var newPopulation = [];

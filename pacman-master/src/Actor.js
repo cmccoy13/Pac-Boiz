@@ -169,7 +169,7 @@ Actor.prototype.getStepSizeFromTable = (function(){
         else if (level >= 2 && level <= 4)  entry = 1;
         else if (level >= 5 && level <= 20) entry = 2;
         else if (level >= 21)               entry = 3;
-        return stepSizes[entry*7*16 + pattern*16 + this.frames%16];
+        return stepSizes[entry*7*16 + pattern*16 + this.frames%16] + 5;
     };
 })();
 
