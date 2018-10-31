@@ -58,11 +58,11 @@ let ITERATIONS        = 1000;
 let INPUT_GENOME_SIZE = 12;
 let OUTPUT_GENOME_SIZE = 1;
 let START_HIDDEN_SIZE = 0;
-let MUTATION_RATE     = 0.5;
+let MUTATION_RATE     = 0.7;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = false;
+let USE_TRAINED_POP = true;
 
 let neat;
 
@@ -128,7 +128,7 @@ function evaluateGenome() {
         newGameState.setStartLevel(1);
         switchState(newGameState);
         executive.init();
-        genomeIndex++;
+        //genomeIndex++;
     } else {
         endEvaluation();
     }
