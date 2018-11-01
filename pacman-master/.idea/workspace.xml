@@ -6,7 +6,7 @@
       <change beforePath="$PROJECT_DIR$/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.htm.bak" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +86,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="htm" value="307" />
-          <entry key="js" value="4061" />
+          <entry key="js" value="4111" />
           <entry key="json" value="7" />
           <entry key="sh" value="107" />
         </counts>
@@ -95,7 +95,7 @@
         <counts>
           <entry key="HTML" value="307" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="4061" />
+          <entry key="JavaScript" value="4111" />
           <entry key="PLAIN_TEXT" value="107" />
         </counts>
       </usages-collector>
@@ -151,8 +151,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="8200" column="23" selection-start-line="8200" selection-start-column="16" selection-end-line="8200" selection-end-column="23" />
+            <state relative-caret-position="768">
+              <caret line="10998" column="41" selection-start-line="10998" selection-start-column="41" selection-end-line="10998" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -166,11 +166,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+            <state relative-caret-position="127">
+              <caret line="47" column="90" lean-forward="true" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -189,11 +189,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/states.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="1640" column="19" selection-start-line="1640" selection-start-column="19" selection-end-line="1640" selection-end-column="19" />
+            <state relative-caret-position="245">
+              <caret line="1319" column="41" selection-start-line="1319" selection-start-column="41" selection-end-line="1319" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -202,10 +202,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Player</find>
-      <find>new Player</find>
-      <find>GeneticP</find>
-      <find>actor</find>
       <find>Step</find>
       <find>update()</find>
       <find>step()</find>
@@ -232,6 +228,10 @@
       <find>mapWidth</find>
       <find>nextDir</find>
       <find>crossover</find>
+      <find>gameover</find>
+      <find>overState</find>
+      <find>deadState</find>
+      <find>playState</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -250,16 +250,16 @@
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/executive.js" />
         <option value="$PROJECT_DIR$/src/populations/population0.js" />
-        <option value="$PROJECT_DIR$/pacman.js" />
         <option value="$PROJECT_DIR$/src/Player.js" />
         <option value="$PROJECT_DIR$/src/energizer.js" />
         <option value="$PROJECT_DIR$/src/actors.js" />
         <option value="$PROJECT_DIR$/src/Actor.js" />
-        <option value="$PROJECT_DIR$/src/states.js" />
         <option value="$PROJECT_DIR$/build.sh" />
         <option value="$PROJECT_DIR$/src/geneticPlayer.js" />
         <option value="$PROJECT_DIR$/src/genetic.js" />
         <option value="$PROJECT_DIR$/index.htm" />
+        <option value="$PROJECT_DIR$/pacman.js" />
+        <option value="$PROJECT_DIR$/src/states.js" />
       </list>
     </option>
   </component>
@@ -374,12 +374,12 @@
       <workItem from="1540841556651" duration="21983000" />
       <workItem from="1540935508885" duration="2992000" />
       <workItem from="1540947611136" duration="1402000" />
-      <workItem from="1541035645301" duration="4690000" />
+      <workItem from="1541035645301" duration="5168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50716000" />
+    <option name="totallyTimeSpent" value="51194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="23" width="1440" height="829" extended-state="6" />
@@ -656,13 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/states.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="1640" column="19" selection-start-line="1640" selection-start-column="19" selection-end-line="1640" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/geneticDeclarations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -674,13 +667,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="8200" column="23" selection-start-line="8200" selection-start-column="16" selection-end-line="8200" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -714,13 +700,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="67" column="18" lean-forward="true" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+        <state relative-caret-position="127">
+          <caret line="47" column="90" lean-forward="true" selection-start-line="47" selection-start-column="90" selection-end-line="47" selection-end-column="90" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="10998" column="41" selection-start-line="10998" selection-start-column="41" selection-end-line="10998" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="1319" column="41" selection-start-line="1319" selection-start-column="41" selection-end-line="1319" selection-end-column="41" />
         </state>
       </provider>
     </entry>

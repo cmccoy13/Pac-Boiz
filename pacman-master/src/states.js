@@ -1317,7 +1317,8 @@ var playState = {
                 else if (pacman.invincible) // pass through ghost
                     continue;
                 else // killed by ghost
-                    switchState(deadState);
+                    switchState(overState);
+                    //switchState(deadState);
                 return true;
             }
         }

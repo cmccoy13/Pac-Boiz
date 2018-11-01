@@ -10996,7 +10996,8 @@ var playState = {
                 else if (pacman.invincible) // pass through ghost
                     continue;
                 else // killed by ghost
-                    switchState(deadState);
+                    switchState(overState);
+                    //switchState(deadState);
                 return true;
             }
         }
@@ -13865,7 +13866,7 @@ function endEvaluation(){
     // Replace the old population with the new population
     neat.population = newPopulation;
     neat.mutate();
-    neat.crossover();
+    neat.crossOver();
 
     neat.generation++;
     startEvaluation();
