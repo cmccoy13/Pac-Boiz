@@ -4,7 +4,7 @@
 <head>
 
     <title>Pac-Man</title>
-    <!-- last updated: Thu Nov  1 10:31:34 PDT 2018 -->
+    <!-- last updated: Thu Nov  1 11:13:53 PDT 2018 -->
     <!-- Lock viewport on mobile devices. -->
     <!--
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
@@ -39,11 +39,20 @@
         }
     </style>
 
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <script src="https://wagenaartje.github.io/neataptic/cdn/1.4.7/neataptic.js"></script>
+
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://marvl.infotech.monash.edu/webcola/cola.v3.min.js"></script>
+
+    <!--<script src="https://rawgit.com/wagenaartje/neataptic/master/dist/neataptic.js"></script>-->
+    <script src="https://rawgit.com/wagenaartje/neataptic/master/graph/graph.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://rawgit.com/wagenaartje/neataptic/master/graph/graph.css">
 
 n<script src="src/populations/population60.js"></script>n<script src="src/geneticDeclarations.js"></script>n<script src="src/inherit.js"></script>n<script src="src/sound.js"></script>n<script src="src/random.js"></script>n<script src="src/game.js"></script>n<script src="src/direction.js"></script>n<script src="src/Map.js"></script>n<script src="src/colors.js"></script>n<script src="src/mapgen.js"></script>n<script src="src/atlas.js"></script>n<script src="src/renderers.js"></script>n<script src="src/hud.js"></script>n<script src="src/galagaStars.js"></script>n<script src="src/Button.js"></script>n<script src="src/Menu.js"></script>n<script src="src/inGameMenu.js"></script>n<script src="src/sprites.js"></script>n<script src="src/Actor.js"></script>n<script src="src/Ghost.js"></script>n<script src="src/Player.js"></script>n<script src="src/geneticPlayer.js"></script>n<script src="src/actors.js"></script>n<script src="src/targets.js"></script>n<script src="src/ghostCommander.js"></script>n<script src="src/ghostReleaser.js"></script>n<script src="src/elroyTimer.js"></script>n<script src="src/energizer.js"></script>n<script src="src/fruit.js"></script>n<script src="src/executive.js"></script>n<script src="src/states.js"></script>n<script src="src/input.js"></script>n<script src="src/cutscenes.js"></script>n<script src="src/maps.js"></script>n<script src="src/vcr.js"></script>n<script src="src/genetic.js"></script>n<script src="src/main.js"></script>n
 
@@ -54,12 +63,14 @@ n<script src="src/populations/population60.js"></script>n<script src="src/geneti
 
         <div class="row">
             <div class="col-md-3">
-
-        <canvas id='canvas'><div id="canvas-warning">Your browser does not support HTML Canvas.  Please upgrade!</div></canvas>
-        <canvas id='atlas' style="display:none"></canvas>
+                <canvas id='canvas'><div id="canvas-warning">Your browser does not support HTML Canvas.  Please upgrade!</div></canvas>
+                <canvas id='atlas' style="display:none"></canvas>
+            </div>
+            <div class="col-md-9">
+                <svg class="draw" height="800px" width="800px"/>
             </div>
         </div>
-    </div>
+
 </body>
 
 </html>

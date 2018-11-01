@@ -74,6 +74,12 @@ function initNeat(){
         fitness,
         {
             mutation: methods.mutation.ALL,
+            crossover: [
+                methods.crossover.UNIFORM,
+                methods.crossover.AVERAGE,
+                methods.crossover.SINGLE_POINT,
+                methods.crossover.TWO_POINT
+            ],
             popsize: PLAYER_AMOUNT,
             mutationRate: MUTATION_RATE,
             elitism: Math.round(ELITISM_PERCENT * PLAYER_AMOUNT),
@@ -117,6 +123,8 @@ function evaluateGenome() {
 
     if(genomeIndex < neat.population.length) {
         const genome = neat.population[genomeIndex];
+
+        drawGraph(genome.graph(600, 200), '.draw');
 
         //console.log(genome);
 
