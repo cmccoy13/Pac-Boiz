@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed74f0cb-8a8f-4153-b645-1ca269e9b29e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug.htm" beforeDir="false" afterPath="$PROJECT_DIR$/debug.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.htm.bak" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +67,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="htm" value="3" />
-          <entry key="js" value="44" />
+          <entry key="js" value="46" />
           <entry key="json" value="2" />
           <entry key="sh" value="4" />
           <entry key="ts" value="1" />
@@ -75,7 +78,7 @@
         <counts>
           <entry key="HTML" value="3" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="44" />
+          <entry key="JavaScript" value="46" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -83,17 +86,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="htm" value="76" />
-          <entry key="js" value="3802" />
+          <entry key="js" value="3822" />
           <entry key="json" value="7" />
-          <entry key="sh" value="105" />
+          <entry key="sh" value="107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="76" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="3802" />
-          <entry key="PLAIN_TEXT" value="105" />
+          <entry key="JavaScript" value="3822" />
+          <entry key="PLAIN_TEXT" value="107" />
         </counts>
       </usages-collector>
     </session>
@@ -101,31 +104,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actor.js">
+        <entry file="file://$PROJECT_DIR$/src/executive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2535">
-              <caret line="171" column="70" selection-start-line="171" selection-start-column="70" selection-end-line="171" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/genetic.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+            <state relative-caret-position="15">
+              <caret line="128" column="18" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main.js">
+        <entry file="file://$PROJECT_DIR$/src/genetic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
+            <state relative-caret-position="801">
+              <caret line="131" column="11" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/geneticDeclarations.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -142,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152985">
-              <caret line="9865" column="20" selection-start-line="9865" selection-start-column="20" selection-end-line="9865" selection-end-column="20" />
+            <state relative-caret-position="29">
+              <caret line="8200" column="23" selection-start-line="8200" selection-start-column="16" selection-end-line="8200" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -160,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+            <state relative-caret-position="242">
+              <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -178,11 +178,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="137" column="10" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
+            <state relative-caret-position="114">
+              <caret line="122" column="17" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -190,8 +190,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/states.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24420">
-              <caret line="1631" column="10" selection-start-line="1631" selection-start-column="10" selection-end-line="1631" selection-end-column="10" />
+            <state relative-caret-position="349">
+              <caret line="1640" column="19" selection-start-line="1640" selection-start-column="19" selection-end-line="1640" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -200,7 +200,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Neat</find>
       <find>request</find>
       <find>Player</find>
       <find>new Player</find>
@@ -230,6 +229,7 @@
       <find>steps</find>
       <find>PLayer</find>
       <find>mapWidth</find>
+      <find>nextDir</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -253,11 +253,11 @@
         <option value="$PROJECT_DIR$/src/Player.js" />
         <option value="$PROJECT_DIR$/src/energizer.js" />
         <option value="$PROJECT_DIR$/src/actors.js" />
-        <option value="$PROJECT_DIR$/src/geneticPlayer.js" />
         <option value="$PROJECT_DIR$/src/Actor.js" />
-        <option value="$PROJECT_DIR$/build.sh" />
-        <option value="$PROJECT_DIR$/src/states.js" />
         <option value="$PROJECT_DIR$/src/genetic.js" />
+        <option value="$PROJECT_DIR$/src/states.js" />
+        <option value="$PROJECT_DIR$/build.sh" />
+        <option value="$PROJECT_DIR$/src/geneticPlayer.js" />
       </list>
     </option>
   </component>
@@ -371,12 +371,12 @@
       <workItem from="1540841556651" duration="21983000" />
       <workItem from="1540935508885" duration="2992000" />
       <workItem from="1540947611136" duration="1402000" />
-      <workItem from="1541035645301" duration="58000" />
+      <workItem from="1541035645301" duration="1868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46084000" />
+    <option name="totallyTimeSpent" value="47894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -396,7 +396,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32971507" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3256445" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -588,20 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/geneticDeclarations.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/executive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="18" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2175">
@@ -653,24 +639,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152985">
-          <caret line="9865" column="20" selection-start-line="9865" selection-start-column="20" selection-end-line="9865" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/energizer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -684,24 +656,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
+    <entry file="file://$PROJECT_DIR$/src/executive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2055">
-          <caret line="137" column="10" selection-start-line="137" selection-start-column="10" selection-end-line="137" selection-end-column="10" />
+        <state relative-caret-position="15">
+          <caret line="128" column="18" selection-start-line="128" selection-start-column="18" selection-end-line="128" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/states.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24420">
-          <caret line="1631" column="10" selection-start-line="1631" selection-start-column="10" selection-end-line="1631" selection-end-column="10" />
+        <state relative-caret-position="349">
+          <caret line="1640" column="19" selection-start-line="1640" selection-start-column="19" selection-end-line="1640" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geneticDeclarations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" lean-forward="true" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="8200" column="23" selection-start-line="8200" selection-start-column="16" selection-end-line="8200" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/genetic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="89" column="57" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+        <state relative-caret-position="801">
+          <caret line="131" column="11" selection-start-line="131" selection-start-column="11" selection-end-line="131" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="122" column="17" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
         </state>
       </provider>
     </entry>
