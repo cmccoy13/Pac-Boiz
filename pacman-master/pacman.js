@@ -13806,6 +13806,8 @@ function startEvaluation(){
 
     genomeIndex = 0;
 
+    document.getElementById("generation").textContent = neat.generation;
+
     evaluateGenome();
 }
 
@@ -13815,6 +13817,9 @@ function evaluateGenome() {
 
     if(genomeIndex < neat.population.length) {
         const genome = neat.population[genomeIndex];
+
+        document.getElementById("agent").textContent = genomeIndex + 1;
+
 
         drawGraph(genome.graph(600, 200), '.draw');
 
