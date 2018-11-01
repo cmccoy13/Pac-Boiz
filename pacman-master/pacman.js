@@ -13865,10 +13865,12 @@ function endEvaluation(){
     // Replace the old population with the new population
     neat.population = newPopulation;
     neat.mutate();
+    neat.crossover();
 
     neat.generation++;
     startEvaluation();
 }
+
 
 //@line 1 "src/main.js"
 //////////////////////////////////////////////////////////////////////////////////////
