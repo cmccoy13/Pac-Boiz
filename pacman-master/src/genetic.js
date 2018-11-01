@@ -108,6 +108,13 @@ function fitness(genome) {
 
 /** Start the evaluation of the current generation */
 function startEvaluation(){
+
+    if(USE_TRAINED_POP && neat.generation != population.generation && neat.generation % 10 === 0) {
+        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    } else if (!USE_TRAINED_POP && neat.generation % 10 === 0)  {
+        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    }
+
     console.log(`generation: ${neat.generation}`);
     players = [];
     highestScore = 0;
