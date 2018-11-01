@@ -91,6 +91,7 @@ function initNeat(){
          }
          neat.population = newPop;
          neat.generation = population.generation;
+         console.log(neat.generation);
          //neat.population = neataptic.Network.fromJSON(population);
      }
 }

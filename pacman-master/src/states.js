@@ -1638,7 +1638,7 @@ var overState = (function() {
             //}
             //else
              gameover = true;
-             generation++;
+             genomeIndex++;
                 frames++;
         },
     };
