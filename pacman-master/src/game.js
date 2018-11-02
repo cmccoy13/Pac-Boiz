@@ -227,12 +227,12 @@ var addScore = function(p) {
     var score = getScore();
 
     // handle extra life at 10000 points
-    if (score < 10000 && score+p >= 10000) {
-        extraLives++;
-        renderer.drawMap();
-    }
+    // if (score < 10000 && score+p >= 10000) {
+    //     extraLives++;
+    //     renderer.drawMap();
+    // }
 
-    score += p;
+    score += (p * 10);
     setScore(score);
 
     if (!practiceMode) {

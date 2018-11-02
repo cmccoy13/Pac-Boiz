@@ -389,12 +389,12 @@ var addScore = function(p) {
     var score = getScore();
 
     // handle extra life at 10000 points
-    if (score < 10000 && score+p >= 10000) {
-        extraLives++;
-        renderer.drawMap();
-    }
+    // if (score < 10000 && score+p >= 10000) {
+    //     extraLives++;
+    //     renderer.drawMap();
+    // }
 
-    score += p;
+    score += (p * 10);
     setScore(score);
 
     if (!practiceMode) {
@@ -8284,6 +8284,13 @@ var GeneticPlayer = function(genome) {
     Player.apply(this);
     this.brain = genome;
 
+
+    this.prevTile = {
+        x: 0,
+        y: 0
+    };
+    this.sameSpotCounter = 0;
+
     console.log(this);
 
 };
@@ -8385,10 +8392,7 @@ function checkIfDot(x, y) {
 
 GeneticPlayer.prototype.steer = function() {
 
-    this.brain.score = getScore();
-    //console.log(this.brain.score);
-
-    //console.log(getDataInput());
+    this.brain.score = this.getFitness();
 
     if(getDataInput() != null) {
         const input = this.brain.activate(getDataInput());
@@ -8414,23 +8418,45 @@ GeneticPlayer.prototype.steer = function() {
                 y: 1
             };
         }
-        //console.log(input);
-        // const x = input[0] < .5 ? -1 : 1;
-        // const y = input[1] < .5 ? -1 : 1;
-        //
-        // if (x !== y) {
-        //     this.dir = {
-        //         x: x,
-        //         y: y
-        //     };
-        // }
+
     }
     Player.prototype.steer.call(this);
 }
 
 GeneticPlayer.prototype.setGenome = function(genome) {
     this.brain = genome;
+    this.sameSpotCounter = 0;
+    this.prevTile = {
+        x: 0,
+        y: 0
+    };
 };
+
+GeneticPlayer.prototype.getFitness = function() {
+
+    console.log("here");
+
+    if(this.prevTile.x == pacman.tile.x && this.prevTile.y == pacman.tile.y) {
+        this.sameSpotCounter++;
+
+        if(this.sameSpotCounter > 250) {
+            console.log("over from not moving");
+            switchState(overState)
+        } else if(this.sameSpotCounter > 60) {
+            setScore(getScore() - 1);
+        }
+
+    } else {
+        this.sameSpotCounter = 0;
+    }
+
+    this.prevTile = pacman.tile;
+
+
+    return getScore();
+
+
+}
 //@line 1 "src/actors.js"
 //////////////////////////////////////////////////////////////////////////////////////
 // create all the actors
