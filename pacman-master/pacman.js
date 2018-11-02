@@ -8434,9 +8434,7 @@ GeneticPlayer.prototype.setGenome = function(genome) {
 
 GeneticPlayer.prototype.getFitness = function() {
 
-    console.log("here");
-
-    if(this.prevTile.x == pacman.tile.x && this.prevTile.y == pacman.tile.y) {
+    if(this.prevTile.x === pacman.tile.x && this.prevTile.y === pacman.tile.y) {
         this.sameSpotCounter++;
 
         if(this.sameSpotCounter > 250) {
