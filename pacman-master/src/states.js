@@ -1639,8 +1639,7 @@ var overState = (function() {
             //}
             //else
              gameover = true;
-             genomeIndex++;
-                frames++;
+             frames++;
         },
     };
 })();

@@ -159,6 +159,8 @@ GeneticPlayer.prototype.steer = function() {
         }
 
     }
+    setScore(getScore() - 1);
+
     Player.prototype.steer.call(this);
 }
 
@@ -173,6 +175,10 @@ GeneticPlayer.prototype.setGenome = function(genome) {
 
 GeneticPlayer.prototype.getFitness = function() {
 
+    if(getScore() < -100) {
+        switchState(overState)
+    }
+
     if(this.prevTile.x === pacman.tile.x && this.prevTile.y === pacman.tile.y) {
         this.sameSpotCounter++;
 
@@ -180,7 +186,7 @@ GeneticPlayer.prototype.getFitness = function() {
             console.log("over from not moving");
             switchState(overState)
         } else if(this.sameSpotCounter > 60) {
-            setScore(getScore() - 1);
+            setScore(getScore() - 5);
         }
 
     } else {

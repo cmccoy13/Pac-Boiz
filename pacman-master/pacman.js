@@ -369,10 +369,10 @@ var scores = [
     0,0, // otto
     0 ];
 var highScores = [
-    10000,10000, // pacman
-    10000,10000, // mspac
-    10000,10000, // cookie
-    10000,10000, // otto
+    0,0, // pacman
+    0,0, // mspac
+    0,0, // cookie
+    0,0, // otto
     ];
 
 var getScoreIndex = function() {
@@ -394,7 +394,7 @@ var addScore = function(p) {
     //     renderer.drawMap();
     // }
 
-    score += (p * 10);
+    score += (p * 50);
     setScore(score);
 
     if (!practiceMode) {
@@ -8438,6 +8438,8 @@ GeneticPlayer.prototype.steer = function() {
         }
 
     }
+    setScore(getScore() - 1);
+
     Player.prototype.steer.call(this);
 }
 
@@ -8452,6 +8454,10 @@ GeneticPlayer.prototype.setGenome = function(genome) {
 
 GeneticPlayer.prototype.getFitness = function() {
 
+    if(getScore() < -100) {
+        switchState(overState)
+    }
+
     if(this.prevTile.x === pacman.tile.x && this.prevTile.y === pacman.tile.y) {
         this.sameSpotCounter++;
 
@@ -8459,7 +8465,7 @@ GeneticPlayer.prototype.getFitness = function() {
             console.log("over from not moving");
             switchState(overState)
         } else if(this.sameSpotCounter > 60) {
-            setScore(getScore() - 1);
+            setScore(getScore() - 5);
         }
 
     } else {
@@ -9642,6 +9648,7 @@ var executive = (function(){
 
         if(gameover) {
             executive.stop();
+            genomeIndex++;
             console.log("stopped");
             return;
         }
@@ -11360,8 +11367,7 @@ var overState = (function() {
             //}
             //else
              gameover = true;
-             genomeIndex++;
-                frames++;
+             frames++;
         },
     };
 })();

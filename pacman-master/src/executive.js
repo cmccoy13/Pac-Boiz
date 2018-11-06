@@ -80,6 +80,7 @@ var executive = (function(){
 
         if(gameover) {
             executive.stop();
+            genomeIndex++;
             console.log("stopped");
             return;
         }
