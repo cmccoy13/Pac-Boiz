@@ -53,16 +53,18 @@ let methods = neataptic.methods;
 //var Config  = neataptic.Config;
 
 // GA settings
-let PLAYER_AMOUNT     = 100;
+let PLAYER_AMOUNT     = 180;
 let ITERATIONS        = 1000;
-let INPUT_GENOME_SIZE = 12;
-let OUTPUT_GENOME_SIZE = 1;
-let START_HIDDEN_SIZE = 0;
+let INPUT_GENOME_SIZE = 18;
+let OUTPUT_GENOME_SIZE = 4;
+let START_HIDDEN_SIZE = 2;
 let MUTATION_RATE     = 0.7;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = true;
+let USE_TRAINED_POP = false;
+
+let SAVE_EVERY = 5;
 
 let neat;
 
@@ -99,6 +101,8 @@ function initNeat(){
          neat.generation = population.generation;
          console.log(neat.generation);
          //neat.population = neataptic.Network.fromJSON(population);
+     } else {
+         neat.mutate();
      }
 }
 
@@ -109,10 +113,12 @@ function fitness(genome) {
 /** Start the evaluation of the current generation */
 function startEvaluation(){
 
-    if(USE_TRAINED_POP && neat.generation != population.generation && neat.generation % 10 === 0) {
-        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
-    } else if (!USE_TRAINED_POP && neat.generation % 10 === 0)  {
-        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    if(neat.generation != 0) {
+        if (USE_TRAINED_POP && neat.generation != population.generation && neat.generation % SAVE_EVERY === 0) {
+            download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+        } else if (!USE_TRAINED_POP && neat.generation % SAVE_EVERY === 0) {
+            download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+        }
     }
 
     console.log(`generation: ${neat.generation}`);
@@ -160,9 +166,9 @@ function endEvaluation(){
     console.log('Generation:', neat.generation, '- average score:', neat.getAverage());
 
 
-    if(neat.generation % 10 === 0) {
-        download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
-    }
+    // if(neat.generation % 10 === 0) {
+    //     download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
+    // }
 
     neat.sort();
     var newPopulation = [];
@@ -180,7 +186,7 @@ function endEvaluation(){
     // Replace the old population with the new population
     neat.population = newPopulation;
     neat.mutate();
-    neat.crossOver();
+    //neat.crossOver();
 
     neat.generation++;
     startEvaluation();

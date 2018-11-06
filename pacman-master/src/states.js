@@ -1224,10 +1224,10 @@ var readyState =  (function(){
             renderer.drawReadyMessage();
         },
         update: function() {
-            if (frames == duration*60)
+            //if (frames == duration*60)
                 switchState(playState);
-            else
-                frames++;
+            //else
+             //   frames++;
         },
     };
 })();
