@@ -34,7 +34,7 @@ echo "
 " > $output
 
 for file in \
-    populations/population75.js \
+    populations/population335.js \
     geneticDeclarations.js \
     inherit.js \
     sound.js \
