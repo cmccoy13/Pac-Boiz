@@ -1206,7 +1206,7 @@ var readyState =  (function(){
         init: function() {
             audio.startMusic.play();
             var i;
-            for (i=0; i<5; i++)
+            for (i=0; i<actors.length; i++)
                 actors[i].reset();
             ghostCommander.reset();
             fruit.reset();
@@ -1307,7 +1307,7 @@ var playState = {
     // returns true if collision happened
     isPacmanCollide: function() {
         var i,g;
-        for (i = 0; i<4; i++) {
+        for (i = 0; i<ghosts.length; i++) {
             g = ghosts[i];
             if (g.tile.x == pacman.tile.x && g.tile.y == pacman.tile.y && g.mode == GHOST_OUTSIDE) {
                 if (g.scared) { // eat ghost
@@ -1343,14 +1343,14 @@ var playState = {
             // but update ghosts running home
             if (energizer.showingPoints()) {
                 for (j=0; j<maxSteps; j++)
-                    for (i=0; i<4; i++)
+                    for (i=0; i<ghosts.length; i++)
                         if (ghosts[i].mode == GHOST_GOING_HOME || ghosts[i].mode == GHOST_ENTERING_HOME)
                             ghosts[i].update(j);
                 energizer.updatePointsTimer();
                 skip = true;
             }
             else { // make ghosts go home immediately after points disappear
-                for (i=0; i<4; i++)
+                for (i=0; i<ghosts.length; i++)
                     if (ghosts[i].mode == GHOST_EATEN) {
                         ghosts[i].mode = GHOST_GOING_HOME;
                         ghosts[i].targetting = 'door';
@@ -1388,12 +1388,12 @@ var playState = {
                     // (redundant to prevent pass-throughs)
                     // (if collision happens, stop immediately.)
                     if (this.isPacmanCollide()) break;
-                    for (i=0;i<4;i++) actors[i].update(j);
+                    for (i=0;i<ghosts.length;i++) ghosts[i].update(j);
                     if (this.isPacmanCollide()) break;
                 }
 
                 // update frame counts
-                for (i=0; i<5; i++)
+                for (i=0; i<actors.length; i++)
                     actors[i].frames++;
             }
         }
@@ -1509,8 +1509,8 @@ var deadState = (function() {
                 },
                 update: function() {
                     var i;
-                    for (i=0; i<4; i++) 
-                        actors[i].frames++; // keep animating ghosts
+                    for (i=0; i<ghosts.length; i++)
+                        ghosts[i].frames++; // keep animating ghosts
                 },
                 draw: function() {
                     commonDraw();

@@ -188,7 +188,7 @@ Ghost.prototype.leaveHome = function() {
 Ghost.prototype.playSounds = function() {
     var ghostsOutside = 0;
     var ghostsGoingHome = 0;
-    for (var i=0; i<4; i++) {
+    for (var i=0; i<ghosts.length; i++) {
         if (ghosts[i].mode == GHOST_OUTSIDE)    ghostsOutside++;
         if (ghosts[i].mode == GHOST_GOING_HOME) ghostsGoingHome++;
     }

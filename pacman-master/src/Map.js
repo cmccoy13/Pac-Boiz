@@ -376,7 +376,7 @@ Map.prototype.isFloorTile = function(x,y) {
 
 // mark the dot at the given coordinate eaten
 Map.prototype.onDotEat = function(x,y) {
-    this.dotsdotsEaten++;
+    this.dotsEaten++;
     var i = this.posToIndex(x,y);
     this.currentTiles[i] = ' ';
     this.timeEaten[i] = vcr.getTime();

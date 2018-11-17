@@ -301,7 +301,7 @@ var clearCheats, backupCheats, restoreCheats;
     clearCheats = function() {
         pacman.invincible = false;
         pacman.ai = false;
-        for (i=0; i<5; i++) {
+        for (i=0; i<actors.length; i++) {
             actors[i].isDrawPath = false;
             actors[i].isDrawTarget = false;
         }
@@ -322,7 +322,7 @@ var clearCheats, backupCheats, restoreCheats;
     restoreCheats = function() {
         pacman.invincible = invincible;
         pacman.ai = ai;
-        for (i=0; i<5; i++) {
+        for (i=0; i<actors.length; i++) {
             actors[i].isDrawPath = isDrawPath[i];
             actors[i].isDrawTarget = isDrawTarget[i];
         }
@@ -921,7 +921,7 @@ Map.prototype.isFloorTile = function(x,y) {
 
 // mark the dot at the given coordinate eaten
 Map.prototype.onDotEat = function(x,y) {
-    this.dotsdotsEaten++;
+    this.dotsEaten++;
     var i = this.posToIndex(x,y);
     this.currentTiles[i] = ' ';
     this.timeEaten[i] = vcr.getTime();
@@ -3334,7 +3334,7 @@ var initRenderer = function(){
             ctx.lineWidth = "1.5";
             ctx.lineCap = "round";
             ctx.lineJoin = "round";
-            for (i=0;i<5;i++)
+            for (i=0;i<actors.length;i++)
                 if (actors[i].isDrawTarget)
                     actors[i].drawTarget(ctx);
         },
@@ -3343,7 +3343,7 @@ var initRenderer = function(){
             var backupAlpha = ctx.globalAlpha;
             ctx.globalAlpha = 0.7;
             var i;
-            for (i=0;i<5;i++)
+            for (i=0;i<actors.length;i++)
                 if (actors[i].isDrawPath)
                     this.drawPath(actors[i]);
             ctx.globalAlpha = backupAlpha;
@@ -3500,7 +3500,7 @@ var initRenderer = function(){
             var i;
             // draw such that pacman appears on top
             if (energizer.isActive()) {
-                for (i=0; i<4; i++) {
+                for (i=0; i<ghosts.length; i++) {
                     this.drawGhost(ghosts[i]);
                 }
                 if (!energizer.showingPoints())
@@ -3511,7 +3511,7 @@ var initRenderer = function(){
             // draw such that pacman appears on bottom
             else {
                 this.drawPlayer();
-                for (i=3; i>=0; i--) {
+                for (i=ghosts.length - 1; i>=0; i--) {
                     if (ghosts[i].isVisible) {
                         this.drawGhost(ghosts[i]);
                     }
@@ -7761,7 +7761,7 @@ Ghost.prototype.leaveHome = function() {
 Ghost.prototype.playSounds = function() {
     var ghostsOutside = 0;
     var ghostsGoingHome = 0;
-    for (var i=0; i<4; i++) {
+    for (var i=0; i<ghosts.length; i++) {
         if (ghosts[i].mode == GHOST_OUTSIDE)    ghostsOutside++;
         if (ghosts[i].mode == GHOST_GOING_HOME) ghostsGoingHome++;
     }
@@ -8291,8 +8291,6 @@ var GeneticPlayer = function(genome) {
     };
     this.sameSpotCounter = 0;
 
-    console.log(this);
-
 };
 
 //GeneticPlayer.prototype = Object.create(Player.prototype);
@@ -8302,107 +8300,268 @@ var GeneticPlayer = function(genome) {
 GeneticPlayer.prototype = newChildObject(Player.prototype);
 
 
+// function getDataInput() {
+//
+//     const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
+//
+//     const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50, ghost.scared ? 1 : 0]);
+//
+//     //const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
+//
+//     const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y, checkIfDot);
+//
+//     const nearestPower = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y, checkIfPower);
+//
+//     if(nearest != null) {
+//
+//         const nearestNormalize = [nearest.x / 50, nearest.y / 50, nearestPower.x / 50, nearestPower.y / 50];
+//
+//         const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData/*, ...board*/];
+//
+//         //console.log(dataArr);
+//
+//         return dataArr;
+//     }
+//
+//     return null;
+// }
+
+// function calculateDistanceToNearestDot(xs, ys, checkFunc) {
+//
+//     for (let d = 1; d<map.currentTiles.length; d++)
+//     {
+//         for (let i = 0; i < d + 1; i++)
+//         {
+//             const x1 = xs - d + i;
+//             const y1 = ys - i;
+//
+//             if(checkFunc(x1, y1)) {
+//                 return {
+//                     x: x1,
+//                     y: y1
+//                 }
+//             }
+//
+//             const x2 = xs + d - i;
+//             const y2 = ys + i;
+//
+//             if(checkFunc(x2, y2)) {
+//                 return {
+//                     x: x2,
+//                     y: y2
+//                 }
+//             }
+//         }
+//
+//
+//         for (let i = 1; i < d; i++)
+//         {
+//             const x1 = xs - i;
+//             const y1 = ys + d - i;
+//
+//             if(checkFunc(x1, y1)) {
+//                 return {
+//                     x: x1,
+//                     y: y1
+//                 }
+//             }
+//
+//             const x2 = xs + d - i;
+//             const y2 = ys - i;
+//
+//             if(checkFunc(x2, y2)) {
+//                 return {
+//                     x: x2,
+//                     y: y2
+//                 }
+//             }
+//         }
+//     }
+//
+//     return null;
+//
+// }
+
+function checkThreatLevel() {
+    const distanceCheck = 8;
+    const visited = new Set();
+
+    const initUp = {
+        x: pacman.tile.x,
+        y: pacman.tile.y - 1,
+        distance: 1,
+        dir: 0
+    };
+    const initRight = {
+        x: pacman.tile.x + 1,
+        y: pacman.tile.y,
+        distance: 1,
+        dir: 1
+    };
+    const initDown = {
+        x: pacman.tile.x,
+        y: pacman.tile.y + 1,
+        distance: 1,
+        dir: 2
+    };
+    const initLeft = {
+        x: pacman.tile.x - 1,
+        y: pacman.tile.y,
+        distance: 1,
+        dir: 3
+    };
+
+    const queue = [initUp, initRight, initDown, initLeft];
+    const threat = [0,0,0,0];
+
+    while(queue.length > 0) {
+        let current = queue.pop();
+
+        const visitedString = current.x + " " + current.y;
+
+        if(threat[current.dir] !== 1 && !visited.has(visitedString) && map.isFloorTile(current.x, current.y)) {
+
+            visited.add(visitedString);
+
+            if (ghosts.filter(ghost => ghost.tile.x === current.x && ghost.tile.y === current.y && !ghost.scared && ghost.mode !== GHOST_GOING_HOME).length > 0) {
+                threat[current.dir] = 1;
+            } else if(current.distance + 1 <= distanceCheck) {
+                const up = {
+                    x: current.x,
+                    y: current.y - 1,
+                    distance: current.distance + 1,
+                    dir: current.dir
+                };
+                const right = {
+                    x: current.x + 1,
+                    y: current.y,
+                    distance: current.distance + 1,
+                    dir: current.dir
+                };
+                const down = {
+                    x: current.x,
+                    y: current.y + 1,
+                    distance: current.distance + 1,
+                    dir: current.dir
+                };
+                const left = {
+                    x: current.x - 1,
+                    y: current.y,
+                    distance: current.distance + 1,
+                    dir: current.dir
+                };
+
+                queue.unshift(...[up, right, down, left])
+            }
+        }
+    }
+    return threat;
+}
+
+function getNearestDotDir() {
+    const visited = new Set();
+
+    const initUp = {
+        x: pacman.tile.x,
+        y: pacman.tile.y - 1,
+        dir: 0
+    };
+    const initRight = {
+        x: pacman.tile.x + 1,
+        y: pacman.tile.y,
+        dir: 1
+    };
+    const initDown = {
+        x: pacman.tile.x,
+        y: pacman.tile.y + 1,
+        dir: 2
+    };
+    const initLeft = {
+        x: pacman.tile.x - 1,
+        y: pacman.tile.y,
+        dir: 3
+    };
+
+    const queue = [initUp, initRight, initDown, initLeft];
+
+    while(queue.length > 0) {
+        let current = queue.pop();
+
+        const visitedString = current.x + " " + current.y;
+
+        if(!visited.has(visitedString) && map.isFloorTile(current.x, current.y)) {
+
+            visited.add(visitedString);
+
+            const tileChar = map.getTile(current.x, current.y);
+            if (tileChar === '.' || tileChar === 'o') {
+                return current.dir;
+            }
+            else {
+                const up = {
+                    x: current.x,
+                    y: current.y - 1,
+                    dir: current.dir
+                };
+                const right = {
+                    x: current.x + 1,
+                    y: current.y,
+                    dir: current.dir
+                };
+                const down = {
+                    x: current.x,
+                    y: current.y + 1,
+                    dir: current.dir
+                };
+                const left = {
+                    x: current.x - 1,
+                    y: current.y,
+                    dir: current.dir
+                };
+
+                queue.unshift(...[up, right, down, left])
+            }
+        }
+    }
+    return -1;
+}
+
+function getSurroundingWalls() {
+    const above = map.isFloorTile(pacman.tile.x, pacman.tile.y - 1) ? 1 : 0;
+    const right = map.isFloorTile(pacman.tile.x + 1, pacman.tile.y) ? 1 : 0;
+    const below = map.isFloorTile(pacman.tile.x, pacman.tile.y + 1) ? 1 : 0;
+    const left = map.isFloorTile(pacman.tile.x - 1, pacman.tile.y) ? 1 : 0;
+
+    return [above, right, below, left];
+}
+
 function getDataInput() {
+    const threat = checkThreatLevel();
+    const intended = getNearestDotDir();
+    const walls = getSurroundingWalls();
 
-    const pacmanInput = [pacman.tile.x / 50, pacman.tile.y / 50];
-
-    const ghostData = ghosts.flatMap(ghost => [ghost.tile.x / 50, ghost.tile.y / 50, ghost.scared ? 1 : 0]);
-
-    //const board = map.tiles.split("").map(character => (character == '|' || character == '_') ? 1 : 0);
-
-    const nearest = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y, checkIfDot);
-
-    const nearestPower = calculateDistanceToNearestDot(pacman.tile.x, pacman.tile.y, checkIfPower);
-
-    if(nearest != null) {
-
-        const nearestNormalize = [nearest.x / 50, nearest.y / 50, nearestPower.x / 50, nearestPower.y / 50];
-
-        const dataArr = [...pacmanInput, ...nearestNormalize, ...ghostData/*, ...board*/];
-
-        //console.log(dataArr);
-
-        return dataArr;
-    }
-
-    return null;
+    return [...walls, intended, ...threat];
 }
 
-function calculateDistanceToNearestDot(xs, ys, checkFunc) {
-
-    for (let d = 1; d<map.currentTiles.length; d++)
-    {
-        for (let i = 0; i < d + 1; i++)
-        {
-            const x1 = xs - d + i;
-            const y1 = ys - i;
-
-            if(checkFunc(x1, y1)) {
-                return {
-                    x: x1,
-                    y: y1
-                }
-            }
-
-            const x2 = xs + d - i;
-            const y2 = ys + i;
-
-            if(checkFunc(x2, y2)) {
-                return {
-                    x: x2,
-                    y: y2
-                }
-            }
-        }
-
-
-        for (let i = 1; i < d; i++)
-        {
-            const x1 = xs - i;
-            const y1 = ys + d - i;
-
-            if(checkFunc(x1, y1)) {
-                return {
-                    x: x1,
-                    y: y1
-                }
-            }
-
-            const x2 = xs + d - i;
-            const y2 = ys - i;
-
-            if(checkFunc(x2, y2)) {
-                return {
-                    x: x2,
-                    y: y2
-                }
-            }
-        }
-    }
-
-    return null;
-
-}
-
-function checkIfDot(x, y) {
-    if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
-        return false;
-    }
-    return map.currentTiles[(map.numCols * y) + x] === ".";
-}
-
-function checkIfPower(x, y) {
-    if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
-        return false;
-    }
-    return map.currentTiles[(map.numCols * y) + x] === "o";
-}
+// function checkIfDot(x, y) {
+//     if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
+//         return false;
+//     }
+//     return map.currentTiles[(map.numCols * y) + x] === ".";
+// }
+//
+// function checkIfPower(x, y) {
+//     if(x < 0 || y < 0 || x > map.numCols - 1 || y > map.numRows - 1) {
+//         return false;
+//     }
+//     return map.currentTiles[(map.numCols * y) + x] === "o";
+// }
 
 
 GeneticPlayer.prototype.steer = function() {
 
     this.brain.score = this.getFitness();
-
+    //
     if(getDataInput() != null) {
         const input = this.brain.activate(getDataInput());
 
@@ -8514,8 +8673,8 @@ pacman.pathColor = "rgba(255,255,0,0.8)";
 
 // order at which they appear in original arcade memory
 // (suggests drawing/update order)
-var actors = [blinky, pinky, inky, clyde, pacman];
-var ghosts = [blinky, pinky, inky, clyde];
+var actors = [/*blinky,*/ pinky, inky, clyde, pacman];
+var ghosts = [/*blinky,*/ pinky, inky, clyde];
 //@line 1 "src/targets.js"
 /////////////////////////////////////////////////////////////////
 // Targetting
@@ -8868,7 +9027,7 @@ var ghostCommander = (function() {
                 newCmd = getNewCommand(frame);
                 if (newCmd != undefined) {
                     command = newCmd;
-                    for (i=0; i<4; i++)
+                    for (i=0; i<ghosts.length; i++)
                         ghosts[i].reverse();
                 }
                 frame++;
@@ -8987,52 +9146,54 @@ var ghostReleaser = (function(){
 
         },
         update: function() {
-            var g;
+            if(RELEASE_GHOSTS) {
+                var g;
 
-            // use personal dot counter
-            if (mode == MODE_PERSONAL) {
-                for (i=1;i<4;i++) {
-                    g = ghosts[i];
-                    if (g.mode == GHOST_PACING_HOME) {
-                        if (ghostCounts[i] >= personalDotLimit[i]()) {
-                            g.leaveHome();
-                            return;
+                // use personal dot counter
+                if (mode == MODE_PERSONAL) {
+                    for (i = 1; i < 4; i++) {
+                        g = ghosts[i];
+                        if (g.mode == GHOST_PACING_HOME) {
+                            if (ghostCounts[i] >= personalDotLimit[i]()) {
+                                g.leaveHome();
+                                return;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
-            }
-            // use global dot counter
-            else if (mode == MODE_GLOBAL) {
-                if (globalCount == globalDotLimit[PINKY] && pinky.mode == GHOST_PACING_HOME) {
-                    pinky.leaveHome();
-                    return;
+                // use global dot counter
+                else if (mode == MODE_GLOBAL) {
+                    if (globalCount == globalDotLimit[PINKY] && pinky.mode == GHOST_PACING_HOME) {
+                        pinky.leaveHome();
+                        return;
+                    }
+                    else if (globalCount == globalDotLimit[INKY] && inky.mode == GHOST_PACING_HOME) {
+                        inky.leaveHome();
+                        return;
+                    }
+                    else if (globalCount == globalDotLimit[CLYDE] && clyde.mode == GHOST_PACING_HOME) {
+                        globalCount = 0;
+                        mode = MODE_PERSONAL;
+                        clyde.leaveHome();
+                        return;
+                    }
                 }
-                else if (globalCount == globalDotLimit[INKY] && inky.mode == GHOST_PACING_HOME) {
-                    inky.leaveHome();
-                    return;
-                }
-                else if (globalCount == globalDotLimit[CLYDE] && clyde.mode == GHOST_PACING_HOME) {
-                    globalCount = 0;
-                    mode = MODE_PERSONAL;
-                    clyde.leaveHome();
-                    return;
-                }
-            }
 
-            // also use time since last dot was eaten
-            if (framesSinceLastDot > getTimeoutLimit()) {
-                framesSinceLastDot = 0;
-                for (i=1;i<4;i++) {
-                    g = ghosts[i];
-                    if (g.mode == GHOST_PACING_HOME) {
-                        g.leaveHome();
-                        break;
+                // also use time since last dot was eaten
+                if (framesSinceLastDot > getTimeoutLimit()) {
+                    framesSinceLastDot = 0;
+                    for (i = 1; i < 4; i++) {
+                        g = ghosts[i];
+                        if (g.mode == GHOST_PACING_HOME) {
+                            g.leaveHome();
+                            break;
+                        }
                     }
                 }
+                else
+                    framesSinceLastDot++;
             }
-            else
-                framesSinceLastDot++;
         },
     };
 })();
@@ -9172,7 +9333,7 @@ var energizer = (function() {
             active = false;
             points = 100;
             pointsFramesLeft = 0;
-            for (i=0; i<4; i++)
+            for (i=0; i<ghosts.length; i++)
                 ghosts[i].scared = false;
         },
         update: function() {
@@ -9190,7 +9351,7 @@ var energizer = (function() {
             active = true;
             count = 0;
             points = 100;
-            for (i=0; i<4; i++) {
+            for (i=0; i<ghosts.length; i++) {
                 ghosts[i].onEnergized();
             }
             if (getDuration() == 0) { // if no duration, then immediately reset
@@ -10934,7 +11095,7 @@ var readyState =  (function(){
         init: function() {
             audio.startMusic.play();
             var i;
-            for (i=0; i<5; i++)
+            for (i=0; i<actors.length; i++)
                 actors[i].reset();
             ghostCommander.reset();
             fruit.reset();
@@ -11035,7 +11196,7 @@ var playState = {
     // returns true if collision happened
     isPacmanCollide: function() {
         var i,g;
-        for (i = 0; i<4; i++) {
+        for (i = 0; i<ghosts.length; i++) {
             g = ghosts[i];
             if (g.tile.x == pacman.tile.x && g.tile.y == pacman.tile.y && g.mode == GHOST_OUTSIDE) {
                 if (g.scared) { // eat ghost
@@ -11071,14 +11232,14 @@ var playState = {
             // but update ghosts running home
             if (energizer.showingPoints()) {
                 for (j=0; j<maxSteps; j++)
-                    for (i=0; i<4; i++)
+                    for (i=0; i<ghosts.length; i++)
                         if (ghosts[i].mode == GHOST_GOING_HOME || ghosts[i].mode == GHOST_ENTERING_HOME)
                             ghosts[i].update(j);
                 energizer.updatePointsTimer();
                 skip = true;
             }
             else { // make ghosts go home immediately after points disappear
-                for (i=0; i<4; i++)
+                for (i=0; i<ghosts.length; i++)
                     if (ghosts[i].mode == GHOST_EATEN) {
                         ghosts[i].mode = GHOST_GOING_HOME;
                         ghosts[i].targetting = 'door';
@@ -11116,12 +11277,12 @@ var playState = {
                     // (redundant to prevent pass-throughs)
                     // (if collision happens, stop immediately.)
                     if (this.isPacmanCollide()) break;
-                    for (i=0;i<4;i++) actors[i].update(j);
+                    for (i=0;i<ghosts.length;i++) ghosts[i].update(j);
                     if (this.isPacmanCollide()) break;
                 }
 
                 // update frame counts
-                for (i=0; i<5; i++)
+                for (i=0; i<actors.length; i++)
                     actors[i].frames++;
             }
         }
@@ -11237,8 +11398,8 @@ var deadState = (function() {
                 },
                 update: function() {
                     var i;
-                    for (i=0; i<4; i++) 
-                        actors[i].frames++; // keep animating ghosts
+                    for (i=0; i<ghosts.length; i++)
+                        ghosts[i].frames++; // keep animating ghosts
                 },
                 draw: function() {
                     commonDraw();
@@ -13803,7 +13964,8 @@ let MUTATION_RATE     = 0.7;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = true;
+let USE_TRAINED_POP = false;
+let RELEASE_GHOSTS = false;
 
 let SAVE_EVERY = 5;
 
