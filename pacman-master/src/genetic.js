@@ -55,7 +55,7 @@ let methods = neataptic.methods;
 // GA settings
 let PLAYER_AMOUNT     = 180;
 let ITERATIONS        = 1000;
-let INPUT_GENOME_SIZE = 18;
+let INPUT_GENOME_SIZE = 9;
 let OUTPUT_GENOME_SIZE = 4;
 let START_HIDDEN_SIZE = 2;
 let MUTATION_RATE     = 0.7;
@@ -129,6 +129,10 @@ function startEvaluation(){
     genomeIndex = 0;
 
     document.getElementById("generation").textContent = neat.generation;
+
+    // if(neat.generation > 200) {
+    //     RELEASE_GHOSTS = true;
+    // }
 
     evaluateGenome();
 }

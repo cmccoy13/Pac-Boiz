@@ -261,7 +261,7 @@ function getDataInput() {
     const intended = getNearestDotDir();
     const walls = getSurroundingWalls();
 
-    return [...walls, intended, ...threat];
+    return [...walls, intended / 4, ...threat];
 }
 
 // function checkIfDot(x, y) {
@@ -283,41 +283,44 @@ GeneticPlayer.prototype.steer = function() {
 
     this.brain.score = this.getFitness();
     //
-    if(getDataInput() != null) {
-        const input = this.brain.activate(getDataInput());
+    //if(getDataInput() != null) {
 
-        let maxIndex = 0;
-        for(let i = 1; i < input.length; i++) {
-            if(input[i] > input[maxIndex]) {
-                maxIndex = i;
-            }
+    const percept = getDataInput();
+    //console.log(percept);
+    const input = this.brain.activate(percept);
+
+    let maxIndex = 0;
+    for(let i = 1; i < input.length; i++) {
+        if(input[i] > input[maxIndex]) {
+            maxIndex = i;
         }
-
-        // console.log(input);
-
-        if(maxIndex === 0) {
-            this.dir = {
-                x: -1,
-                y: 0
-            };
-        } else if (maxIndex === 1) {
-            this.dir = {
-                x: 1,
-                y: 0
-            };
-        } else if (maxIndex === 2) {
-            this.dir = {
-                x: 0,
-                y: -1
-            };
-        }else {
-            this.dir = {
-                x: 0,
-                y: 1
-            };
-        }
-
     }
+
+    // console.log(input);
+
+    if(maxIndex === 0) {
+        this.dir = {
+            x: -1,
+            y: 0
+        };
+    } else if (maxIndex === 1) {
+        this.dir = {
+            x: 1,
+            y: 0
+        };
+    } else if (maxIndex === 2) {
+        this.dir = {
+            x: 0,
+            y: -1
+        };
+    }else {
+        this.dir = {
+            x: 0,
+            y: 1
+        };
+    }
+
+    //}
     setScore(getScore() - 1);
 
     Player.prototype.steer.call(this);
