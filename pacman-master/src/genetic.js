@@ -53,19 +53,18 @@ let methods = neataptic.methods;
 //var Config  = neataptic.Config;
 
 // GA settings
-let PLAYER_AMOUNT     = 180;
+let PLAYER_AMOUNT     = 40;
 let ITERATIONS        = 1000;
-let INPUT_GENOME_SIZE = 9;
+let INPUT_GENOME_SIZE = 4;
 let OUTPUT_GENOME_SIZE = 4;
 let START_HIDDEN_SIZE = 2;
 let MUTATION_RATE     = 0.7;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = false;
-let RELEASE_GHOSTS = false;
+let USE_TRAINED_POP = true;
 
-let SAVE_EVERY = 5;
+let SAVE_EVERY = 25;
 
 let neat;
 
@@ -129,10 +128,6 @@ function startEvaluation(){
     genomeIndex = 0;
 
     document.getElementById("generation").textContent = neat.generation;
-
-    // if(neat.generation > 200) {
-    //     RELEASE_GHOSTS = true;
-    // }
 
     evaluateGenome();
 }
