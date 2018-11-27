@@ -1243,7 +1243,8 @@ var readyNewState = newChildObject(readyState, {
         // increment level and ready the next map
         level++;
         if (gameMode == GAME_PACMAN) {
-            map = mapPacman;
+            map = mapgen();
+            //map = mapPacman;
         }
         else if (gameMode == GAME_MSPACMAN || gameMode == GAME_OTTO) {
             setNextMsPacMap();

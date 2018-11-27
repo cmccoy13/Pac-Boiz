@@ -62,7 +62,7 @@ let MUTATION_RATE     = 0.7;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
-let USE_TRAINED_POP = false;
+let USE_TRAINED_POP = true;
 let RELEASE_GHOSTS = false;
 
 let SAVE_EVERY = 5;

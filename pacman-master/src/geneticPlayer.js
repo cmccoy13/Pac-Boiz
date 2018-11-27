@@ -286,38 +286,30 @@ GeneticPlayer.prototype.steer = function() {
     //if(getDataInput() != null) {
 
     const percept = getDataInput();
-    //console.log(percept);
+    //console.log(percept[4] * 4);
     const input = this.brain.activate(percept);
 
-    let maxIndex = 0;
-    for(let i = 1; i < input.length; i++) {
-        if(input[i] > input[maxIndex]) {
-            maxIndex = i;
-        }
-    }
+    // let maxIndex = 0;
+    // for(let i = 1; i < input.length; i++) {
+    //     if(input[i] > input[maxIndex]) {
+    //         maxIndex = i;
+    //     }
+    // }
+
+    let maxIndex = percept[4] * 4;
+
+    //console.log(maxIndex);
 
     // console.log(input);
 
     if(maxIndex === 0) {
-        this.dir = {
-            x: -1,
-            y: 0
-        };
+        this.inputDirEnum = DIR_UP;
     } else if (maxIndex === 1) {
-        this.dir = {
-            x: 1,
-            y: 0
-        };
+        this.inputDirEnum = DIR_RIGHT;
     } else if (maxIndex === 2) {
-        this.dir = {
-            x: 0,
-            y: -1
-        };
+        this.inputDirEnum = DIR_DOWN;
     }else {
-        this.dir = {
-            x: 0,
-            y: 1
-        };
+        this.inputDirEnum = DIR_LEFT;
     }
 
     //}
@@ -341,21 +333,25 @@ GeneticPlayer.prototype.getFitness = function() {
         switchState(overState)
     }
 
-    if(this.prevTile.x === pacman.tile.x && this.prevTile.y === pacman.tile.y) {
+    if(Math.abs(this.prevTile.x - pacman.tile.x) <= 1 && Math.abs(this.prevTile.y - pacman.tile.y) <= 1) {
         this.sameSpotCounter++;
 
-        if(this.sameSpotCounter > 250) {
+        if(this.sameSpotCounter > 120) {
+            this.sameSpotCounter = 0;
             console.log("over from not moving");
             switchState(overState)
-        } else if(this.sameSpotCounter > 60) {
+        } else if(this.sameSpotCounter > 30) {
             setScore(getScore() - 5);
         }
 
     } else {
         this.sameSpotCounter = 0;
-    }
 
-    this.prevTile = pacman.tile;
+        this.prevTile = {
+            x: pacman.tile.x,
+            y: pacman.tile.y
+        };
+    }
 
 
     return getScore();
