@@ -8,13 +8,17 @@
       <change beforePath="$PROJECT_DIR$/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.htm.bak" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/energizer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/energizer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/executive.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/executive.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geneticPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/geneticPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population115.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population210.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population335.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population75.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population10.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population155.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population240.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population245.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population265.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population350.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/populations/population90.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/states.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,21 +70,22 @@
     <session id="1048265108">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="19" />
+          <entry key="project.closed" value="25" />
           <entry key="project.open.time.1" value="9" />
-          <entry key="project.open.time.10" value="3" />
-          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.10" value="4" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="6" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="21" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="htm" value="5" />
-          <entry key="js" value="91" />
+          <entry key="js" value="95" />
           <entry key="json" value="2" />
           <entry key="sh" value="8" />
           <entry key="ts" value="1" />
@@ -91,7 +96,7 @@
         <counts>
           <entry key="HTML" value="5" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="91" />
+          <entry key="JavaScript" value="96" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -99,16 +104,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="htm" value="307" />
-          <entry key="js" value="9132" />
+          <entry key="js" value="9333" />
           <entry key="json" value="7" />
           <entry key="sh" value="148" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="Bash" value="224" />
           <entry key="HTML" value="307" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="9132" />
+          <entry key="JavaScript" value="9603" />
           <entry key="PLAIN_TEXT" value="148" />
         </counts>
       </usages-collector>
@@ -117,37 +123,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Actor.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2535">
-              <caret line="171" column="70" selection-start-line="171" selection-start-column="70" selection-end-line="171" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/direction.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Player.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1425">
-              <caret line="96" column="21" selection-start-line="96" selection-start-column="9" selection-end-line="96" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/genetic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="1740">
+              <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Map.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5685">
+              <caret line="381" column="17" selection-start-line="381" selection-start-column="17" selection-end-line="381" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -155,17 +143,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/executive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/energizer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+            <state relative-caret-position="1335">
+              <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -173,8 +152,35 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="297" lean-forward="true" selection-start-line="291" selection-start-column="7" selection-end-line="297" />
+            <state relative-caret-position="156">
+              <caret line="352" selection-start-line="352" selection-end-line="352" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pacman.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mapgen.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/states.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="1245" column="16" selection-start-line="1245" selection-start-column="16" selection-end-line="1245" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -200,8 +206,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+            <state relative-caret-position="555">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -210,8 +216,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>here&quot;</find>
-      <find>start</find>
       <find>newGameState</find>
       <find>genome</find>
       <find>genomeIndex</find>
@@ -240,6 +244,8 @@
       <find>nextDir</find>
       <find>inputDirEnum</find>
       <find>getFit</find>
+      <find>mapgen</find>
+      <find>stopped</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -262,20 +268,20 @@
         <option value="$PROJECT_DIR$/src/populations/population0.js" />
         <option value="$PROJECT_DIR$/src/Player.js" />
         <option value="$PROJECT_DIR$/src/Actor.js" />
-        <option value="$PROJECT_DIR$/src/executive.js" />
         <option value="$PROJECT_DIR$/index.htm" />
         <option value="$PROJECT_DIR$/src/ghostReleaser.js" />
         <option value="$PROJECT_DIR$/src/game.js" />
-        <option value="$PROJECT_DIR$/src/states.js" />
         <option value="$PROJECT_DIR$/src/Ghost.js" />
         <option value="$PROJECT_DIR$/src/renderers.js" />
         <option value="$PROJECT_DIR$/src/ghostCommander.js" />
         <option value="$PROJECT_DIR$/src/Map.js" />
         <option value="$PROJECT_DIR$/pacman.js" />
         <option value="$PROJECT_DIR$/src/energizer.js" />
-        <option value="$PROJECT_DIR$/src/genetic.js" />
         <option value="$PROJECT_DIR$/src/actors.js" />
+        <option value="$PROJECT_DIR$/src/executive.js" />
+        <option value="$PROJECT_DIR$/src/genetic.js" />
         <option value="$PROJECT_DIR$/build.sh" />
+        <option value="$PROJECT_DIR$/src/states.js" />
         <option value="$PROJECT_DIR$/src/geneticPlayer.js" />
       </list>
     </option>
@@ -338,8 +344,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,18 +410,22 @@
       <workItem from="1542313354242" duration="2873000" />
       <workItem from="1542318363770" duration="3996000" />
       <workItem from="1542415095522" duration="7647000" />
-      <workItem from="1543340617771" duration="434000" />
+      <workItem from="1543340617771" duration="1681000" />
+      <workItem from="1543357716892" duration="505000" />
+      <workItem from="1543393705988" duration="67000" />
+      <workItem from="1543451828694" duration="1154000" />
+      <workItem from="1543514713949" duration="1262000" />
+      <workItem from="1543525894632" duration="566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75677000" />
+    <option name="totallyTimeSpent" value="80478000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="834" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3483548" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37339056" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -429,12 +439,13 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.32210243" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.3229308" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.32249323" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32971507" />
       <window_info anchor="bottom" id="ANTLR Preview" order="12" weight="0.32971507" />
+      <window_info anchor="bottom" id="Docker" order="13" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -517,13 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="179" column="23" lean-forward="true" selection-start-line="179" selection-start-column="23" selection-end-line="179" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapgen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21570">
-          <caret line="1438" column="24" selection-start-line="1438" selection-start-column="24" selection-end-line="1438" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -675,20 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/states.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11877">
-          <caret line="1214" column="23" selection-start-line="1214" selection-start-column="23" selection-end-line="1214" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="381" column="17" selection-start-line="381" selection-start-column="17" selection-end-line="381" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/geneticDeclarations.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -707,13 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1010">
-          <caret line="8382" column="4" selection-start-line="8382" selection-start-column="4" selection-end-line="8382" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -738,24 +721,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/energizer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/genetic.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="1740">
+          <caret line="116" column="20" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5685">
+          <caret line="381" column="17" selection-start-line="381" selection-start-column="17" selection-end-line="381" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/executive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2040">
-          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
+        <state relative-caret-position="1335">
+          <caret line="89" column="17" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/energizer.js">
+    <entry file="file://$PROJECT_DIR$/src/mapgen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
+        <state relative-caret-position="240">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -775,15 +772,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="28" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+        <state relative-caret-position="555">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/states.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="1245" column="16" selection-start-line="1245" selection-start-column="16" selection-end-line="1245" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="297" lean-forward="true" selection-start-line="291" selection-start-column="7" selection-end-line="297" />
+        <state relative-caret-position="156">
+          <caret line="352" selection-start-line="352" selection-end-line="352" />
         </state>
       </provider>
     </entry>

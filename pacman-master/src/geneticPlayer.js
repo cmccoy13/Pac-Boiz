@@ -11,6 +11,7 @@ var GeneticPlayer = function(genome) {
         y: 0
     };
     this.sameSpotCounter = 0;
+    this.highscore = 0;
 
 };
 
@@ -259,9 +260,13 @@ function getSurroundingWalls() {
 function getDataInput() {
     const threat = checkThreatLevel();
     const intended = getNearestDotDir();
+    //[up, right, down, left]
+    const intendedArr = [intended === 0 ? 1 : 0, intended === 1 ? 1 : 0, intended === 2 ? 1 : 0, intended === 3 ? 1 : 0];
+    //console.log(intendedArr);
+
     const walls = getSurroundingWalls();
 
-    return [...walls, intended / 4, ...threat];
+    return [...walls, ...intendedArr, ...threat];
 }
 
 // function checkIfDot(x, y) {
@@ -289,14 +294,24 @@ GeneticPlayer.prototype.steer = function() {
     //console.log(percept[4] * 4);
     const input = this.brain.activate(percept);
 
-    // let maxIndex = 0;
-    // for(let i = 1; i < input.length; i++) {
-    //     if(input[i] > input[maxIndex]) {
-    //         maxIndex = i;
-    //     }
+    let maxIndex = 0;
+    for(let i = 1; i < input.length; i++) {
+        if(input[i] > input[maxIndex]) {
+            maxIndex = i;
+        }
+    }
+
+    // if(percept[4] == 1) {
+    //     maxIndex = 0;
+    // } else if(percept[5] == 1) {
+    //     maxIndex = 1;
+    // } else if(percept[6] == 1) {
+    //     maxIndex = 2;
+    // } else {
+    //     maxIndex = 3;
     // }
 
-    let maxIndex = percept[4] * 4;
+    //let maxIndex = percept[4] * 4;
 
     //console.log(maxIndex);
 
@@ -325,9 +340,16 @@ GeneticPlayer.prototype.setGenome = function(genome) {
         x: 0,
         y: 0
     };
+    this.highscore = 0;
 };
 
 GeneticPlayer.prototype.getFitness = function() {
+
+    if(getScore() > this.highscore) {
+        this.highscore = getScore();
+    } else if(getScore() + 3000 < this.highscore) {
+        switchState(overState)
+    }
 
     if(getScore() < -100) {
         switchState(overState)

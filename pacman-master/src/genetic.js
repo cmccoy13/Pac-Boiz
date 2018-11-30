@@ -53,12 +53,12 @@ let methods = neataptic.methods;
 //var Config  = neataptic.Config;
 
 // GA settings
-let PLAYER_AMOUNT     = 180;
+let PLAYER_AMOUNT     = 200;
 let ITERATIONS        = 1000;
-let INPUT_GENOME_SIZE = 9;
+let INPUT_GENOME_SIZE = 12;
 let OUTPUT_GENOME_SIZE = 4;
 let START_HIDDEN_SIZE = 2;
-let MUTATION_RATE     = 0.7;
+let MUTATION_RATE     = 0.5;
 let ELITISM_PERCENT   = 0.1;
 
 // Trained population
@@ -114,7 +114,10 @@ function fitness(genome) {
 /** Start the evaluation of the current generation */
 function startEvaluation(){
 
+    map = mapPacman;
+
     if(neat.generation != 0) {
+        map = mapgen();
         if (USE_TRAINED_POP && neat.generation != population.generation && neat.generation % SAVE_EVERY === 0) {
             download(`var population = {generation: ${neat.generation}, data: ${JSON.stringify(neat.population)}}`, `population${neat.generation}.txt`, "text/plain");
         } else if (!USE_TRAINED_POP && neat.generation % SAVE_EVERY === 0) {
