@@ -65,7 +65,7 @@ let ELITISM_PERCENT   = 0.1;
 let USE_TRAINED_POP = true;
 let RELEASE_GHOSTS = false;
 
-let SAVE_EVERY = 5;
+let SAVE_EVERY = 1;
 
 let neat;
 
