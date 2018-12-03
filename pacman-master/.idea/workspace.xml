@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed74f0cb-8a8f-4153-b645-1ca269e9b29e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/populations/population115.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/debug.htm" beforeDir="false" afterPath="$PROJECT_DIR$/debug.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.htm" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.htm.bak" beforeDir="false" afterPath="$PROJECT_DIR$/index.htm.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pacman.js" beforeDir="false" afterPath="$PROJECT_DIR$/pacman.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/executive.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/executive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/geneticPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/geneticPlayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population10.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population155.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population240.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population245.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population265.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population350.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/populations/population90.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/states.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/states.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,8 +60,8 @@
     <session id="1048265108">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
-          <entry key="project.open.time.1" value="9" />
+          <entry key="project.closed" value="26" />
+          <entry key="project.open.time.1" value="11" />
           <entry key="project.open.time.10" value="4" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.2" value="6" />
@@ -79,7 +69,7 @@
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="26" />
+          <entry key="project.opened" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,7 +104,7 @@
           <entry key="Bash" value="224" />
           <entry key="HTML" value="307" />
           <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="9603" />
+          <entry key="JavaScript" value="9671" />
           <entry key="PLAIN_TEXT" value="148" />
         </counts>
       </usages-collector>
@@ -149,20 +139,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="352" selection-start-line="352" selection-end-line="352" />
+            <state relative-caret-position="17">
+              <caret line="325" column="20" selection-start-line="325" selection-start-column="20" selection-end-line="325" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pacman.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="170">
+              <caret line="11238" column="43" lean-forward="true" selection-start-line="11238" selection-start-column="43" selection-end-line="11238" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -179,8 +169,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/states.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="1245" column="16" selection-start-line="1245" selection-start-column="16" selection-end-line="1245" selection-end-column="16" />
+            <state relative-caret-position="140">
+              <caret line="1385" column="36" selection-start-line="1385" selection-start-column="33" selection-end-line="1385" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -216,18 +206,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>newGameState</find>
-      <find>genome</find>
-      <find>genomeIndex</find>
-      <find>gameOVer</find>
       <find>gameOver</find>
       <find>gameOVe</find>
       <find>genom</find>
       <find>score</find>
       <find>crossover</find>
-      <find>ghost</find>
       <find>visited</find>
-      <find>lives</find>
       <find>is</find>
       <find>GOING</find>
       <find>HOME</find>
@@ -246,6 +230,12 @@
       <find>getFit</find>
       <find>mapgen</find>
       <find>stopped</find>
+      <find>eat</find>
+      <find>lives</find>
+      <find>ghost</find>
+      <find>end</find>
+      <find>state</find>
+      <find>deadState</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -275,7 +265,6 @@
         <option value="$PROJECT_DIR$/src/renderers.js" />
         <option value="$PROJECT_DIR$/src/ghostCommander.js" />
         <option value="$PROJECT_DIR$/src/Map.js" />
-        <option value="$PROJECT_DIR$/pacman.js" />
         <option value="$PROJECT_DIR$/src/energizer.js" />
         <option value="$PROJECT_DIR$/src/actors.js" />
         <option value="$PROJECT_DIR$/src/executive.js" />
@@ -283,6 +272,7 @@
         <option value="$PROJECT_DIR$/build.sh" />
         <option value="$PROJECT_DIR$/src/states.js" />
         <option value="$PROJECT_DIR$/src/geneticPlayer.js" />
+        <option value="$PROJECT_DIR$/pacman.js" />
       </list>
     </option>
   </component>
@@ -308,7 +298,7 @@
       <path value="$PROJECT_DIR$/trainer/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="829" />
@@ -416,16 +406,19 @@
       <workItem from="1543451828694" duration="1154000" />
       <workItem from="1543514713949" duration="1262000" />
       <workItem from="1543525894632" duration="566000" />
+      <workItem from="1543543763689" duration="302000" />
+      <workItem from="1543814304821" duration="275000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80478000" />
+    <option name="totallyTimeSpent" value="81055000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="829" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="829" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.37339056" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.38340485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -439,7 +432,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.3229308" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4985694" visible="true" weight="0.3229308" />
       <window_info anchor="bottom" id="Tool Output" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50143063" side_tool="true" weight="0.32249323" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -777,24 +770,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pacman.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/states.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="1245" column="16" selection-start-line="1245" selection-start-column="16" selection-end-line="1245" selection-end-column="16" />
+        <state relative-caret-position="140">
+          <caret line="1385" column="36" selection-start-line="1385" selection-start-column="33" selection-end-line="1385" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/geneticPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="352" selection-start-line="352" selection-end-line="352" />
+        <state relative-caret-position="17">
+          <caret line="325" column="20" selection-start-line="325" selection-start-column="20" selection-end-line="325" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pacman.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11238" column="43" lean-forward="true" selection-start-line="11238" selection-start-column="43" selection-end-line="11238" selection-end-column="43" />
         </state>
       </provider>
     </entry>
