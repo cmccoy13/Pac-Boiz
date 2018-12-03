@@ -8594,26 +8594,26 @@ GeneticPlayer.prototype.steer = function() {
 
     //console.log(maxIndex);
 
-    // console.log(input);
+    console.log(percept);
 
     if(maxIndex === 0) {
-        if(percept[0] === 1) {
-            setScore(getScore() - 1000);
+        if(percept[0] === 0) {
+            setScore(getScore() - 100);
         }
         this.inputDirEnum = DIR_UP;
     } else if (maxIndex === 1) {
-        if(percept[1] === 1) {
-            setScore(getScore() - 1000);
+        if(percept[1] === 0) {
+            setScore(getScore() - 100);
         }
         this.inputDirEnum = DIR_RIGHT;
     } else if (maxIndex === 2) {
-        if(percept[2] === 1) {
-            setScore(getScore() - 1000);
+        if(percept[2] === 0) {
+            setScore(getScore() - 100);
         }
         this.inputDirEnum = DIR_DOWN;
     }else {
-        if(percept[3] === 1) {
-            setScore(getScore() - 1000);
+        if(percept[3] === 0) {
+            setScore(getScore() - 100);
         }
         this.inputDirEnum = DIR_LEFT;
     }
@@ -8638,13 +8638,13 @@ GeneticPlayer.prototype.getFitness = function() {
 
     if(getScore() > this.highscore) {
         this.highscore = getScore();
-    } else if(getScore() + 3000 < this.highscore) {
+    } else if(getScore() + 10000 < this.highscore) {
         switchState(overState)
     }
 
-    if(getScore() < -100) {
-        switchState(overState)
-    }
+    // if(getScore() < -10000) {
+    //     switchState(overState)
+    // }
 
     if(Math.abs(this.prevTile.x - pacman.tile.x) <= 1 && Math.abs(this.prevTile.y - pacman.tile.y) <= 1) {
         this.sameSpotCounter++;
