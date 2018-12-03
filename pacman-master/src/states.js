@@ -1319,9 +1319,12 @@ var playState = {
                 }
                 else if (pacman.invincible) // pass through ghost
                     continue;
-                else // killed by ghost
+                // killed by ghost
+                else {
+                    setScore(getScore() - 10000);
                     switchState(overState);
                     //switchState(deadState);
+                }
                 return true;
             }
         }
