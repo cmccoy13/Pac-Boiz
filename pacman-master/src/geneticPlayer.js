@@ -319,22 +319,22 @@ GeneticPlayer.prototype.steer = function() {
 
     if(maxIndex === 0) {
         if(percept[0] === 0) {
-            setScore(getScore() - 100);
+            setScore(getScore() - 300);
         }
         this.inputDirEnum = DIR_UP;
     } else if (maxIndex === 1) {
         if(percept[1] === 0) {
-            setScore(getScore() - 100);
+            setScore(getScore() - 300);
         }
         this.inputDirEnum = DIR_RIGHT;
     } else if (maxIndex === 2) {
         if(percept[2] === 0) {
-            setScore(getScore() - 100);
+            setScore(getScore() - 300);
         }
         this.inputDirEnum = DIR_DOWN;
     }else {
         if(percept[3] === 0) {
-            setScore(getScore() - 100);
+            setScore(getScore() - 300);
         }
         this.inputDirEnum = DIR_LEFT;
     }
