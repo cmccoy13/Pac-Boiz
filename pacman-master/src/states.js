@@ -1321,7 +1321,7 @@ var playState = {
                     continue;
                 // killed by ghost
                 else {
-                    setScore(getScore() - 10000);
+                    setScore(getScore() - 100000);
                     switchState(overState);
                     //switchState(deadState);
                 }

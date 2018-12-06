@@ -315,7 +315,7 @@ GeneticPlayer.prototype.steer = function() {
 
     //console.log(maxIndex);
 
-    console.log(percept);
+    //console.log(percept);
 
     if(maxIndex === 0) {
         if(percept[0] === 0) {
@@ -357,11 +357,11 @@ GeneticPlayer.prototype.setGenome = function(genome) {
 
 GeneticPlayer.prototype.getFitness = function() {
 
-    if(getScore() > this.highscore) {
-        this.highscore = getScore();
-    } else if(getScore() + 10000 < this.highscore) {
-        switchState(overState)
-    }
+    //if(getScore() > this.highscore) {
+    //    this.highscore = getScore();
+    //} else if(getScore() + 10000 < this.highscore) {
+    //    switchState(overState)
+    //}
 
     // if(getScore() < -10000) {
     //     switchState(overState)
@@ -372,8 +372,8 @@ GeneticPlayer.prototype.getFitness = function() {
 
         if(this.sameSpotCounter > 120) {
             this.sameSpotCounter = 0;
-            console.log("over from not moving");
-            switchState(overState)
+            //console.log("over from not moving");
+            //switchState(overState)
         } else if(this.sameSpotCounter > 30) {
             setScore(getScore() - 5);
         }

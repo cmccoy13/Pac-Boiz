@@ -14,7 +14,7 @@ var energizer = (function() {
         var seconds = [6,5,4,3,2,5,2,2,1,5,2,1,1,3,1,1,0,1];
         return function() {
             var i = level;
-            return (i > 18) ? 0 : 60*seconds[i-1] / 2;
+            return (i > 18) ? 0 : 60*seconds[i-1] / 3;
         };
     })();
 

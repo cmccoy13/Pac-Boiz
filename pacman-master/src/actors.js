@@ -32,5 +32,5 @@ pacman.pathColor = "rgba(255,255,0,0.8)";
 
 // order at which they appear in original arcade memory
 // (suggests drawing/update order)
-var actors = [/*blinky,*/ pinky, inky, clyde, pacman];
-var ghosts = [/*blinky,*/ pinky, inky, clyde];
+var actors = [blinky, pinky, inky, clyde, pacman];
+var ghosts = [blinky, pinky, inky, clyde];

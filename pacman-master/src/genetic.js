@@ -63,7 +63,7 @@ let ELITISM_PERCENT   = 0.1;
 
 // Trained population
 let USE_TRAINED_POP = true;
-let RELEASE_GHOSTS = false;
+let RELEASE_GHOSTS = true;
 
 let SAVE_EVERY = 1;
 
