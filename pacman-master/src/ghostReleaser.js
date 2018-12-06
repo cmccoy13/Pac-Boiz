@@ -102,52 +102,54 @@ var ghostReleaser = (function(){
 
         },
         update: function() {
-            var g;
+            if(RELEASE_GHOSTS) {
+                var g;
 
-            // use personal dot counter
-            if (mode == MODE_PERSONAL) {
-                for (i=1;i<4;i++) {
-                    g = ghosts[i];
-                    if (g.mode == GHOST_PACING_HOME) {
-                        if (ghostCounts[i] >= personalDotLimit[i]()) {
-                            g.leaveHome();
-                            return;
+                // use personal dot counter
+                if (mode == MODE_PERSONAL) {
+                    for (i = 1; i < 4; i++) {
+                        g = ghosts[i];
+                        if (g.mode == GHOST_PACING_HOME) {
+                            if (ghostCounts[i] >= personalDotLimit[i]()) {
+                                g.leaveHome();
+                                return;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
-            }
-            // use global dot counter
-            else if (mode == MODE_GLOBAL) {
-                if (globalCount == globalDotLimit[PINKY] && pinky.mode == GHOST_PACING_HOME) {
-                    pinky.leaveHome();
-                    return;
+                // use global dot counter
+                else if (mode == MODE_GLOBAL) {
+                    if (globalCount == globalDotLimit[PINKY] && pinky.mode == GHOST_PACING_HOME) {
+                        pinky.leaveHome();
+                        return;
+                    }
+                    else if (globalCount == globalDotLimit[INKY] && inky.mode == GHOST_PACING_HOME) {
+                        inky.leaveHome();
+                        return;
+                    }
+                    else if (globalCount == globalDotLimit[CLYDE] && clyde.mode == GHOST_PACING_HOME) {
+                        globalCount = 0;
+                        mode = MODE_PERSONAL;
+                        clyde.leaveHome();
+                        return;
+                    }
                 }
-                else if (globalCount == globalDotLimit[INKY] && inky.mode == GHOST_PACING_HOME) {
-                    inky.leaveHome();
-                    return;
-                }
-                else if (globalCount == globalDotLimit[CLYDE] && clyde.mode == GHOST_PACING_HOME) {
-                    globalCount = 0;
-                    mode = MODE_PERSONAL;
-                    clyde.leaveHome();
-                    return;
-                }
-            }
 
-            // also use time since last dot was eaten
-            if (framesSinceLastDot > getTimeoutLimit()) {
-                framesSinceLastDot = 0;
-                for (i=1;i<4;i++) {
-                    g = ghosts[i];
-                    if (g.mode == GHOST_PACING_HOME) {
-                        g.leaveHome();
-                        break;
+                // also use time since last dot was eaten
+                if (framesSinceLastDot > getTimeoutLimit()) {
+                    framesSinceLastDot = 0;
+                    for (i = 1; i < 4; i++) {
+                        g = ghosts[i];
+                        if (g.mode == GHOST_PACING_HOME) {
+                            g.leaveHome();
+                            break;
+                        }
                     }
                 }
+                else
+                    framesSinceLastDot++;
             }
-            else
-                framesSinceLastDot++;
         },
     };
 })();

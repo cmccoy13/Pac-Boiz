@@ -33,8 +33,11 @@ echo "
 (function(){
 " > $output
 
+cmd="ls -v src/populations| tail -n 1"
+largest="$(bash -c "$cmd")"
+
 for file in \
-    populations/population335.js \
+    populations/population263.txt \
     geneticDeclarations.js \
     inherit.js \
     sound.js \

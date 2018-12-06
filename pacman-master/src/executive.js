@@ -73,15 +73,9 @@ var executive = (function(){
     var reqFrame; // id of requestAnimationFrame object
     var tick = function(now) {
 
-        if (map != null && pacman != null) {
-
-            //gatherDataAndTrain();
-        }
-
         if(gameover) {
             executive.stop();
             genomeIndex++;
-            console.log("stopped");
             return;
         }
 

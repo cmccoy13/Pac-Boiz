@@ -280,7 +280,7 @@ var initRenderer = function(){
             ctx.lineWidth = "1.5";
             ctx.lineCap = "round";
             ctx.lineJoin = "round";
-            for (i=0;i<5;i++)
+            for (i=0;i<actors.length;i++)
                 if (actors[i].isDrawTarget)
                     actors[i].drawTarget(ctx);
         },
@@ -289,7 +289,7 @@ var initRenderer = function(){
             var backupAlpha = ctx.globalAlpha;
             ctx.globalAlpha = 0.7;
             var i;
-            for (i=0;i<5;i++)
+            for (i=0;i<actors.length;i++)
                 if (actors[i].isDrawPath)
                     this.drawPath(actors[i]);
             ctx.globalAlpha = backupAlpha;
@@ -446,7 +446,7 @@ var initRenderer = function(){
             var i;
             // draw such that pacman appears on top
             if (energizer.isActive()) {
-                for (i=0; i<4; i++) {
+                for (i=0; i<ghosts.length; i++) {
                     this.drawGhost(ghosts[i]);
                 }
                 if (!energizer.showingPoints())
@@ -457,7 +457,7 @@ var initRenderer = function(){
             // draw such that pacman appears on bottom
             else {
                 this.drawPlayer();
-                for (i=3; i>=0; i--) {
+                for (i=ghosts.length - 1; i>=0; i--) {
                     if (ghosts[i].isVisible) {
                         this.drawGhost(ghosts[i]);
                     }

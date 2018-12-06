@@ -14,7 +14,7 @@ var energizer = (function() {
         var seconds = [6,5,4,3,2,5,2,2,1,5,2,1,1,3,1,1,0,1];
         return function() {
             var i = level;
-            return (i > 18) ? 0 : 60*seconds[i-1];
+            return (i > 18) ? 0 : 60*seconds[i-1] / 3;
         };
     })();
 
@@ -65,7 +65,7 @@ var energizer = (function() {
             active = false;
             points = 100;
             pointsFramesLeft = 0;
-            for (i=0; i<4; i++)
+            for (i=0; i<ghosts.length; i++)
                 ghosts[i].scared = false;
         },
         update: function() {
@@ -83,7 +83,7 @@ var energizer = (function() {
             active = true;
             count = 0;
             points = 100;
-            for (i=0; i<4; i++) {
+            for (i=0; i<ghosts.length; i++) {
                 ghosts[i].onEnergized();
             }
             if (getDuration() == 0) { // if no duration, then immediately reset
